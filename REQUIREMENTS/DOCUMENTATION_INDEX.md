@@ -5,100 +5,118 @@ This document serves as a complete index of all coreMusicPlayer documentation, p
 ## 📁 Documentation Structure
 
 ```
-claude-glm_requirements/
+REQUIREMENTS/
 ├── README.md                           # Project overview and quick start
-├── CHANGELOG.md                        # Version history and release notes
-├── FAQ.md                              # Frequently asked questions
 ├── DOCUMENTATION_INDEX.md              # This file - documentation index
+├── OVERVIEW.md                         # System overview and architecture summary
 │
-├── PROJECT_REQUIREMENTS.md             # Detailed functional and technical requirements
-├── ARCHITECTURE.md                     # System architecture and design patterns
-├── CODE_STANDARDS.md                   # Coding standards and best practices
-├── FILE_STRUCTURE.md                   # Complete file organization
+├── REQUIREMENTS/                       # Requirements and standards
+│   ├── PROJECT_REQUIREMENTS.md         # Detailed functional and technical requirements
+│   ├── PERFORMANCE_REQUIREMENTS.md     # Performance benchmarks and requirements
+│   └── CODE_STANDARDS.md               # Coding standards and best practices
 │
-├── BUILD_GUIDE.md                      # Complete build instructions for all platforms
-├── DEPENDENCIES.md                     # All dependencies and licensing information
-├── DEPLOYMENT.md                       # Deployment guide for all platforms
+├── DESIGN/                             # Design and architecture
+│   ├── ARCHITECTURE.md                 # System architecture and design patterns
+│   ├── API_DOCUMENTATION.md            # Complete API reference
+│   ├── ERROR_HANDLING.md               # Error handling strategy
+│   └── FILE_STRUCTURE.md               # Complete file organization
 │
-├── AUDIO_ENGINE.md                     # Detailed audio engine documentation
-├── GUI_IMPLEMENTATION.md               # Qt GUI implementation details
-├── FOOBAR2000_INTEGRATION.md           # Foobar2000 SDK integration guide
-├── PLATFORM_SPECIFICS.md               # Platform-specific implementations
-├── PERFORMANCE_REQUIREMENTS.md         # Performance benchmarks and requirements
+├── IMPLEMENTATION/                     # Implementation details
+│   ├── AUDIO_ENGINE.md                 # Audio engine implementation
+│   ├── SOURCE_EXAMPLES.md              # Key code examples and snippets
+│   ├── GUI_IMPLEMENTATION.md           # Qt GUI implementation details
+│   ├── FOOBAR2000_INTEGRATION.md       # Foobar2000 SDK integration guide
+│   └── PLATFORM_SPECIFICS.md           # Platform-specific implementations
 │
-├── TEST_STRATEGY.md                    # Testing methodology and strategies
-├── IMPLEMENTATION_CHECKLIST.md         # Step-by-step implementation guide
-├── SOURCE_CODE_EXAMPLES.md             # Key code examples and snippets
-└── TROUBLESHOOTING.md                  # Common issues and solutions
+├── BUILD_AND_DEPLOY/                   # Build and deployment
+│   ├── BUILD_GUIDE.md                  # Complete build instructions
+│   ├── IMPLEMENTATION_CHECKLIST.md     # Step-by-step implementation guide
+│   ├── DEPENDENCIES.md                 # All dependencies and licensing information
+│   ├── DEPLOYMENT.md                   # Deployment guide for all platforms
+│   └── TEST_STRATEGY.md                # Testing methodology and strategies
+│
+└── SUPPORT/                            # Support and maintenance
+    ├── TROUBLESHOOTING.md              # Common issues and solutions
+    ├── FAQ.md                          # Frequently asked questions and answers
+    └── CHANGELOG.md                    # Version history and release notes
 ```
 
 ## 📚 Documentation Categories
 
 ### 1. Project Overview
 - **[README.md](README.md)** - Project introduction, features, and quick start guide
-- **[CHANGELOG.md](CHANGELOG.md)** - Complete version history and release notes
-- **[FAQ.md](FAQ.md)** - Frequently asked questions and answers
-- **[PROJECT_REQUIREMENTS.md](PROJECT_REQUIREMENTS.md)** - Detailed functional and technical requirements
+- **[OVERVIEW.md](OVERVIEW.md)** - System overview and high-level architecture
+- **[CHANGELOG.md](SUPPORT/CHANGELOG.md)** - Complete version history and release notes
 
-### 2. Architecture and Design
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture, design patterns, and component interaction
-- **[CODE_STANDARDS.md](CODE_STANDARDS.md)** - Coding standards, conventions, and best practices
-- **[FILE_STRUCTURE.md](FILE_STRUCTURE.md)** - Complete file organization and directory structure
+### 2. Requirements and Standards
+- **[PROJECT_REQUIREMENTS.md](REQUIREMENTS/PROJECT_REQUIREMENTS.md)** - Detailed functional and technical requirements
+- **[PERFORMANCE_REQUIREMENTS.md](REQUIREMENTS/PERFORMANCE_REQUIREMENTS.md)** - Performance benchmarks and optimization guide
+- **[CODE_STANDARDS.md](REQUIREMENTS/CODE_STANDARDS.md)** - Coding standards, conventions, and best practices
 
-### 3. Development and Building
-- **[BUILD_GUIDE.md](BUILD_GUIDE.md)** - Step-by-step build instructions for all platforms
-- **[DEPENDENCIES.md](DEPENDENCIES.md)** - Complete list of dependencies with licensing
-- **[IMPLEMENTATION_CHECKLIST.md](IMPLEMENTATION_CHECKLIST.md)** - Comprehensive implementation checklist
+### 3. Design and Architecture
+- **[ARCHITECTURE.md](DESIGN/ARCHITECTURE.md)** - System architecture, design patterns, and component interaction
+- **[API_DOCUMENTATION.md](DESIGN/API_DOCUMENTATION.md)** - Complete API reference (authoritative)
+- **[ERROR_HANDLING.md](DESIGN/ERROR_HANDLING.md)** - Error handling strategy and patterns
+- **[FILE_STRUCTURE.md](DESIGN/FILE_STRUCTURE.md)** - Complete file organization and directory structure
 
-### 4. Technical Implementation
-- **[AUDIO_ENGINE.md](AUDIO_ENGINE.md)** - Audio engine architecture and implementation details
-- **[GUI_IMPLEMENTATION.md](GUI_IMPLEMENTATION.md)** - Qt GUI implementation with MVC pattern
-- **[FOOBAR2000_INTEGRATION.md](FOOBAR2000_INTEGRATION.md)** - Foobar2000 SDK integration guide
-- **[PLATFORM_SPECIFICS.md](PLATFORM_SPECIFICS.md)** - Platform-specific code and optimizations
-- **[SOURCE_CODE_EXAMPLES.md](SOURCE_CODE_EXAMPLES.md)** - Key code examples and patterns
+### 4. Implementation Details
+- **[AUDIO_ENGINE.md](IMPLEMENTATION/AUDIO_ENGINE.md)** - Audio engine implementation and threading
+- **[SOURCE_EXAMPLES.md](IMPLEMENTATION/SOURCE_EXAMPLES.md)** - Key code examples and implementation patterns
+- **[GUI_IMPLEMENTATION.md](IMPLEMENTATION/GUI_IMPLEMENTATION.md)** - Qt GUI implementation with MVC pattern
+- **[FOOBAR2000_INTEGRATION.md](IMPLEMENTATION/FOOBAR2000_INTEGRATION.md)** - Foobar2000 SDK integration guide
+- **[PLATFORM_SPECIFICS.md](IMPLEMENTATION/PLATFORM_SPECIFICS.md)** - Platform-specific code and optimizations
 
-### 5. Quality and Performance
-- **[PERFORMANCE_REQUIREMENTS.md](PERFORMANCE_REQUIREMENTS.md)** - Performance benchmarks and optimization guide
-- **[TEST_STRATEGY.md](TEST_STRATEGY.md)** - Testing methodology, strategies, and frameworks
+### 5. Build and Deployment
+- **[BUILD_GUIDE.md](BUILD_AND_DEPLOY/BUILD_GUIDE.md)** - Step-by-step build instructions for all platforms
+- **[IMPLEMENTATION_CHECKLIST.md](BUILD_AND_DEPLOY/IMPLEMENTATION_CHECKLIST.md)** - Comprehensive implementation checklist
+- **[DEPENDENCIES.md](BUILD_AND_DEPLOY/DEPENDENCIES.md)** - Complete list of dependencies with licensing
+- **[DEPLOYMENT.md](BUILD_AND_DEPLOY/DEPLOYMENT.md)** - Deployment guide for all platforms and distributions
+- **[TEST_STRATEGY.md](BUILD_AND_DEPLOY/TEST_STRATEGY.md)** - Testing methodology, strategies, and frameworks
 
-### 6. Deployment and Maintenance
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deployment guide for all platforms and distributions
-- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues, debugging, and solutions
+### 6. Support and Maintenance
+- **[TROUBLESHOOTING.md](SUPPORT/TROUBLESHOOTING.md)** - Common issues, debugging, and solutions
+- **[FAQ.md](SUPPORT/FAQ.md)** - Frequently asked questions and answers
 
 ## 🗂️ Quick Reference
 
 ### For New Developers
 1. Start with [README.md](README.md) for project overview
-2. Read [PROJECT_REQUIREMENTS.md](PROJECT_REQUIREMENTS.md) to understand requirements
-3. Review [ARCHITECTURE.md](ARCHITECTURE.md) for system design
-4. Follow [BUILD_GUIDE.md](BUILD_GUIDE.md) to set up development environment
-5. Check [CODE_STANDARDS.md](CODE_STANDARDS.md) for coding guidelines
+2. Read [OVERVIEW.md](OVERVIEW.md) for system understanding
+3. Review [PROJECT_REQUIREMENTS.md](REQUIREMENTS/PROJECT_REQUIREMENTS.md) to understand requirements
+4. Study [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md) for system design
+5. Follow [BUILD_GUIDE.md](BUILD_AND_DEPLOY/BUILD_GUIDE.md) to set up development environment
+6. Check [CODE_STANDARDS.md](REQUIREMENTS/CODE_STANDARDS.md) for coding guidelines
 
 ### For Audio Engine Development
-1. Read [AUDIO_ENGINE.md](AUDIO_ENGINE.md) for engine overview
-2. Review [PLATFORM_SPECIFICS.md](PLATFORM_SPECIFICS.md) for platform code
-3. Check [PERFORMANCE_REQUIREMENTS.md](PERFORMANCE_REQUIREMENTS.md) for optimization
-4. See [SOURCE_CODE_EXAMPLES.md](SOURCE_CODE_EXAMPLES.md) for code patterns
+1. Read [AUDIO_ENGINE.md](IMPLEMENTATION/AUDIO_ENGINE.md) for engine overview
+2. Review [API_DOCUMENTATION.md](DESIGN/API_DOCUMENTATION.md) for audio APIs
+3. Check [PLATFORM_SPECIFICS.md](IMPLEMENTATION/PLATFORM_SPECIFICS.md) for platform code
+4. See [SOURCE_EXAMPLES.md](IMPLEMENTATION/SOURCE_EXAMPLES.md) for code patterns
+5. Understand [ERROR_HANDLING.md](DESIGN/ERROR_HANDLING.md) for error management
 
 ### For GUI Development
-1. Read [GUI_IMPLEMENTATION.md](GUI_IMPLEMENTATION.md) for Qt implementation
-2. Review [CODE_STANDARDS.md](CODE_STANDARDS.md) for Qt coding guidelines
-3. Check [FAQ.md](FAQ.md) for common UI questions
+1. Read [GUI_IMPLEMENTATION.md](IMPLEMENTATION/GUI_IMPLEMENTATION.md) for Qt implementation
+2. Review [CODE_STANDARDS.md](REQUIREMENTS/CODE_STANDARDS.md) for Qt coding guidelines
+3. Check [FAQ.md](SUPPORT/FAQ.md) for common UI questions
+4. Reference [API_DOCUMENTATION.md](DESIGN/API_DOCUMENTATION.md) for GUI APIs
 
 ### For Plugin Development
-1. Read [FOOBAR2000_INTEGRATION.md](FOOBAR2000_INTEGRATION.md) for SDK integration
-2. Review [ARCHITECTURE.md](ARCHITECTURE.md) for plugin architecture
-3. Check [DEPENDENCIES.md](DEPENDENCIES.md) for SDK requirements
+1. Read [FOOBAR2000_INTEGRATION.md](IMPLEMENTATION/FOOBAR2000_INTEGRATION.md) for SDK integration
+2. Review [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md) for plugin architecture
+3. Check [DEPENDENCIES.md](BUILD_AND_DEPLOY/DEPENDENCIES.md) for SDK requirements
+4. See [SOURCE_EXAMPLES.md](IMPLEMENTATION/SOURCE_EXAMPLES.md) for plugin examples
 
 ### For Release Management
-1. Follow [DEPLOYMENT.md](DEPLOYMENT.md) for deployment procedures
-2. Update [CHANGELOG.md](CHANGELOG.md) with release notes
-3. Review [TEST_STRATEGY.md](TEST_STRATEGY.md) for testing requirements
+1. Follow [DEPLOYMENT.md](BUILD_AND_DEPLOY/DEPLOYMENT.md) for deployment procedures
+2. Update [CHANGELOG.md](SUPPORT/CHANGELOG.md) with release notes
+3. Review [TEST_STRATEGY.md](BUILD_AND_DEPLOY/TEST_STRATEGY.md) for testing requirements
+4. Check [PERFORMANCE_REQUIREMENTS.md](REQUIREMENTS/PERFORMANCE_REQUIREMENTS.md) for performance validation
 
 ### For Troubleshooting
-1. Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md) first
-2. Review [FAQ.md](FAQ.md) for common questions
+1. Check [TROUBLESHOOTING.md](SUPPORT/TROUBLESHOOTING.md) first
+2. Review [FAQ.md](SUPPORT/FAQ.md) for common questions
 3. Search relevant technical documentation
+4. Check [ERROR_HANDLING.md](DESIGN/ERROR_HANDLING.md) for error patterns
 
 ## 📝 Documentation Standards
 
@@ -125,15 +143,21 @@ Each document should include:
 ## 🔍 Searching Documentation
 
 ### Find Information About:
-- **Audio formats**: Check [AUDIO_ENGINE.md](AUDIO_ENGINE.md) and [FAQ.md](FAQ.md)
-- **Platform issues**: See [PLATFORM_SPECIFICS.md](PLATFORM_SPECIFICS.md) and [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Build problems**: Review [BUILD_GUIDE.md](BUILD_GUIDE.md) and [DEPENDENCIES.md](DEPENDENCIES.md)
-- **Performance**: Check [PERFORMANCE_REQUIREMENTS.md](PERFORMANCE_REQUIREMENTS.md)
-- **Plugin development**: See [FOOBAR2000_INTEGRATION.md](FOOBAR2000_INTEGRATION.md)
-- **GUI development**: Review [GUI_IMPLEMENTATION.md](GUI_IMPLEMENTATION.md)
+- **API Reference**: Check [API_DOCUMENTATION.md](DESIGN/API_DOCUMENTATION.md) - this is the authoritative source
+- **Audio formats**: Check [AUDIO_ENGINE.md](IMPLEMENTATION/AUDIO_ENGINE.md) and [FAQ.md](SUPPORT/FAQ.md)
+- **Platform issues**: See [PLATFORM_SPECIFICS.md](IMPLEMENTATION/PLATFORM_SPECIFICS.md) and [TROUBLESHOOTING.md](SUPPORT/TROUBLESHOOTING.md)
+- **Build problems**: Review [BUILD_GUIDE.md](BUILD_AND_DEPLOY/BUILD_GUIDE.md) and [DEPENDENCIES.md](BUILD_AND_DEPLOY/DEPENDENCIES.md)
+- **Performance**: Check [PERFORMANCE_REQUIREMENTS.md](REQUIREMENTS/PERFORMANCE_REQUIREMENTS.md)
+- **Error handling**: See [ERROR_HANDLING.md](DESIGN/ERROR_HANDLING.md)
+- **Plugin development**: See [FOOBAR2000_INTEGRATION.md](IMPLEMENTATION/FOOBAR2000_INTEGRATION.md) and [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md)
+- **GUI development**: Review [GUI_IMPLEMENTATION.md](IMPLEMENTATION/GUI_IMPLEMENTATION.md)
+- **Architecture**: Check [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md) and [OVERVIEW.md](OVERVIEW.md)
 
 ### Search Keywords
 Use these keywords to find relevant information:
+- `Result<T>` - Error handling pattern
+- `UnifiedMusicPlayer` - Main player class
+- `PlayerStrategy` - Strategy pattern implementation
 - `WASAPI`, `ALSA`, `CoreAudio` - Platform audio APIs
 - `SIMD`, `SSE2`, `AVX` - Optimizations
 - `Qt6`, `MOC`, `Signals` - GUI framework
@@ -158,6 +182,7 @@ Use these keywords to find relevant information:
 - Add diagrams for complex concepts
 - Cross-reference related documents
 - Keep documents focused on their primary topic
+- **Important**: Reference [API_DOCUMENTATION.md](DESIGN/API_DOCUMENTATION.md) for all API definitions - do not duplicate
 
 ### Review Process
 1. Create a new branch for documentation changes
@@ -170,18 +195,34 @@ Use these keywords to find relevant information:
 
 ## 📊 Documentation Metrics
 
-- **Total Documents**: 15
-- **Total Lines**: ~50,000
+- **Total Documents**: 18
+- **Total Lines**: ~55,000
 - **Code Examples**: 200+
 - **Cross-references**: 500+
-- **Last Updated**: December 15, 2024
+- **Last Updated**: December 17, 2024
+- **API Reference**: [Single authoritative source](DESIGN/API_DOCUMENTATION.md)
+
+## 🔍 Migration Notes
+
+### Recent Improvements
+1. **Unified API Reference**: All API definitions consolidated into [API_DOCUMENTATION.md](DESIGN/API_DOCUMENTATION.md)
+2. **Error Handling**: Centralized in [ERROR_HANDLING.md](DESIGN/ERROR_HANDLING.md)
+3. **Feature Management**: Integrated into [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md)
+4. **Document Organization**: Restructured into logical categories
+5. **System Overview**: Added [OVERVIEW.md](OVERVIEW.md) for quick understanding
+
+### Deprecated Documents
+The following documents have been consolidated or deprecated:
+- `ERROR_HANDLING_FRAMEWORK.md` → [ERROR_HANDLING.md](DESIGN/ERROR_HANDLING.md)
+- `FEATURE_MANAGEMENT_V2.md` → [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md)
+- `PERFORMANCE_MONITORING.md` → Integrated into [ARCHITECTURE.md](DESIGN/ARCHITECTURE.md)
 
 ## 🔄 Maintenance Schedule
 
 ### Monthly
-- Review and update [FAQ.md](FAQ.md) with new common questions
+- Review and update [FAQ.md](SUPPORT/FAQ.md) with new common questions
 - Check all external links and references
-- Update [CHANGELOG.md](CHANGELOG.md) if needed
+- Update [CHANGELOG.md](SUPPORT/CHANGELOG.md) if needed
 
 ### Quarterly
 - Review all documentation for accuracy
@@ -208,4 +249,4 @@ If you can't find the information you need:
 
 ---
 
-*This documentation index is maintained by the coreMusicPlayer team. Last updated: December 15, 2024*
+*This documentation index is maintained by the coreMusicPlayer team. Last updated: December 17, 2024*

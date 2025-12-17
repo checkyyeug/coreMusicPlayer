@@ -1,5 +1,81 @@
 # coreMusicPlayer Implementation Checklist
 
+**[重点]** Updated checklist for the unified player architecture consolidation project.
+
+## 0. Unified Player Architecture Consolidation (NEW)
+
+### 0.1 Strategy Pattern Implementation
+- [ ] Define PlayerStrategy interface
+  - [ ] initialize() method
+  - [ ] optimizePlayback() method
+  - [ ] loadFile() method
+  - [ ] getPlaybackState() method
+
+- [ ] Implement strategy classes
+  - [ ] LegacyStrategy (for music_player_legacy)
+  - [ ] CompleteStrategy (for music_player_complete)
+  - [ ] RealtimeStrategy (for real_player)
+  - [ ] ProductionStrategy (for final_wav_player)
+  - [ ] MultiFormatStrategy (for multi_format_player)
+
+### 0.2 Unified Music Player
+- [ ] Create UnifiedMusicPlayer class
+  - [ ] Mode switching support
+  - [ ] Runtime strategy changes
+  - [ ] Backward compatibility layer
+  - [ ] Configuration integration
+
+- [ ] Implement mode management
+  - [ ] setMode() method
+  - [ ] getMode() method
+  - [ ] Mode validation
+  - [ ] Graceful transitions
+
+### 0.3 Feature Management System
+- [ ] Implement FeatureManager class
+  - [ ] Bitmask-based feature flags
+  - [ ] enableFeature()/disableFeature() methods
+  - [ ] Feature group presets
+  - [ ] Runtime feature changes
+
+- [ ] Define feature flags
+  - [ ] BasicPlayback
+  - [ ] PluginSupport
+  - [ ] RealtimeMode
+  - [ ] AdvancedDSP
+  - [ ] MultiFormat
+  - [ ] SIMDOptimization
+  - [ ] AudioVisualization
+  - [ ] AdvancedBuffering
+  - [ ] ErrorRecovery
+  - [ ] HotPluginReload
+
+### 0.4 Decoder Manager with Lazy Loading
+- [ ] Implement DecoderManager class
+  - [ ] Lazy loading mechanism
+  - [ ] Decoder factory registration
+  - [ ] Thread-safe decoder cache
+  - [ ] Memory management
+
+- [ ] Add decoder lifecycle management
+  - [ ] preloadDecoder() method
+  - [ ] unloadDecoder() method
+  - [ ] Idle timeout unloading
+  - [ ] Usage statistics
+
+### 0.5 Resource Pooling
+- [ ] Implement AudioBufferPool
+  - [ ] RAII buffer handles
+  - [ ] Automatic cleanup
+  - [ ] Memory limits
+  - [ ] Performance metrics
+
+- [ ] Add pool management
+  - [ ] Buffer reuse logic
+  - [ ] Size-based pooling
+  - [ ] Prune old buffers
+  - [ ] Memory fragmentation handling
+
 ## 1. Project Setup
 
 ### 1.1 Repository Initialization
@@ -375,25 +451,87 @@
 - [ ] Memory leak testing
 - [ ] Load testing
 
-## 13. Release Preparation
+## 13. Migration from Separate Players (NEW)
 
-### 13.1 Version Management
+### 13.1 Code Migration
+- [ ] Migrate music_player_legacy code
+  - [ ] Extract basic WAV playback logic
+  - [ ] Create LegacyStrategy
+  - [ ] Test compatibility
+
+- [ ] Migrate music_player_complete code
+  - [ ] Extract plugin system
+  - [ ] Create CompleteStrategy
+  - [ ] Migrate all features
+
+- [ ] Migrate real_player code
+  - [ ] Extract real-time optimizations
+  - [ ] Create RealtimeStrategy
+  - [ ] Validate low-latency
+
+- [ ] Migrate final_wav_player code
+  - [ ] Extract production optimizations
+  - [ ] Create ProductionStrategy
+  - [ ] Ensure stability
+
+- [ ] Migrate multi_format_player code
+  - [ ] Use as base implementation
+  - [ ] Create MultiFormatStrategy
+  - [ ] Maintain format support
+
+### 13.2 Backward Compatibility
+- [ ] Create wrapper executables
+  - [ ] music_player_legacy.exe
+  - [ ] music_player_complete.exe
+  - [ ] real_player.exe
+  - [ ] final_wav_player.exe
+  - [ ] multi_format_player.exe
+
+- [ ] Implement command-line compatibility
+  - [ ] Parse legacy arguments
+  - [ ] Set appropriate mode
+  - [ ] Preserve behavior
+
+- [ ] Configuration migration
+  - [ ] Detect old config files
+  - [ ] Convert to new format
+  - [ ] Preserve user settings
+
+### 13.3 Testing Migration
+- [ ] Create compatibility test suite
+  - [ ] Compare output with original players
+  - [ ] Validate feature parity
+  - [ ] Performance comparison
+
+- [ ] Migration validation
+  - [ ] Smooth transitions
+  - [ ] Data integrity
+  - [ ] No regressions
+
+## 14. Release Preparation
+
+### 14.1 Version Management
 - [ ] Semantic versioning
-- [ ] Changelog
-- [ ] Release notes
+- [ ] Changelog with migration notes
+- [ ] Release notes highlighting unification
 - [ ] Tagging strategy
 
-### 13.2 Release Testing
-- [ ] Smoke tests
-- [ ] User acceptance tests
-- [ ] Compatibility tests
-- [ ] Performance validation
+### 14.2 Release Testing
+- [ ] Smoke tests for all modes
+- [ ] Migration path testing
+- [ ] Backward compatibility validation
+- [ ] Performance benchmarks
 
-### 13.3 Distribution
-- [ ] Create release artifacts
-- [ ] Upload to platforms
-- [ ] Update website
-- [ ] Notify users
+### 14.3 Distribution
+- [ ] Unified player binaries
+  - [ ] Single executable with mode selection
+  - [ ] Compatibility wrappers
+  - [ ] Installer migration
+
+- [ ] Documentation updates
+  - [ ] Migration guide
+  - [ ] Mode selection guide
+  - [ ] Feature comparison matrix
 
 ## 14. Maintenance
 

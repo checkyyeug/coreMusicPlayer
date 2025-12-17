@@ -2,7 +2,17 @@
 
 ## 1. System Architecture Overview
 
-coreMusicPlayer follows a layered architecture pattern with clear separation of concerns. The system is designed to be modular, extensible, and maintainable.
+coreMusicPlayer follows a layered architecture pattern with clear separation of concerns. The system is designed to be modular, extensible, and maintainable. The current design consolidates 5 different player variants into a unified architecture.
+
+### 1.1 Unified Player Architecture
+
+The project has evolved from separate player executables to a single unified player that can operate in different modes:
+
+- **music_player_legacy** → Legacy Mode
+- **music_player_complete** → Complete Mode
+- **real_player** → Real-time Mode
+- **final_wav_player** → Production Mode
+- **multi_format_player** → Multi-format Mode (default)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -13,33 +23,329 @@ coreMusicPlayer follows a layered architecture pattern with clear separation of 
 └─────────────────────┴───────────────────────────────────────────┘
                               │
 ┌─────────────────────────────────────────────────────────────┐
-│                  Application Logic Layer                        │
-├─────────────────────┬───────────────────────────────────────────┤
-│  PlaylistManager   │      PlaybackController                  │
-│  ConfigManager     │      AudioManager                         │
-└─────────────────────┴───────────────────────────────────────────┘
+│              Unified Player Management Layer                │
+├─────────────────────────────────────────────────────────────┤
+│  UnifiedMusicPlayer  │  PlayerModeManager │ ConfigManager   │
+│  (Strategy Pattern)  │  (Mode Selection)  │ (Feature Gating)│
+└─────────────────────────────────────────────────────────────┘
                               │
 ┌─────────────────────────────────────────────────────────────┐
-│                    Core Audio Engine                            │
-├─────────────────────┬───────────────────────────────────────────┤
-│  AudioDecoder       │      SampleRateConverter                 │
-│  AudioOutput        │      AudioProcessor                       │
-│  PluginManager      │      EventBus                             │
-└─────────────────────┴───────────────────────────────────────────┘
+│                  Application Logic Layer                    │
+├─────────────────────┬───────────────────────────────────────┤
+│  PlaylistManager    │      PlaybackController               │
+│  DecoderManager     │      AudioManager                     │
+│  (Lazy Loading)     │                                       │
+└─────────────────────┴───────────────────────────────────────┘
                               │
 ┌─────────────────────────────────────────────────────────────┐
-│                  Platform Abstraction Layer                     │
-├─────────────────────┬───────────────────────────────────────────┤
-│   Windows           │          Linux/Unix                        │
-│  (WASAPI)           │         (ALSA)                           │
-└─────────────────────┴───────────────────────────────────────────┘
+│                    Core Audio Engine                        │
+├─────────────────────┬───────────────────────────────────────┤
+│  AudioDecoder       │      SampleRateConverter              │
+│  AudioOutput        │      AudioProcessor                   │
+│  PluginManager      │      EventBus                         │
+│  BufferPool         │      ThreadPool                       │
+└─────────────────────┴───────────────────────────────────────┘
+                              │
+┌─────────────────────────────────────────────────────────────┐
+│                  Platform Abstraction Layer                 │
+├─────────────────────┬───────────────────────────────────────┤
+│   Windows           │          Linux/Unix                   │
+│  (WASAPI)           │         (ALSA)                        │
+└─────────────────────┴───────────────────────────────────────┘
 ```
+
+### 1.2 Key Architecture Improvements
+
+1. **Strategy Pattern for Player Modes**: Different player implementations are now strategies that can be switched at runtime
+2. **Lazy Loading for Decoders**: Audio decoders are loaded only when needed
+3. **Feature Gating System**: Fine-grained control over enabled features
+4. **Resource Pool Management**: Efficient memory management with buffer pools
+5. **Thread Safety**: Improved thread management with dedicated audio and I/O threads
 
 ## 2. Core Components
 
-### 2.1 Audio Engine Core
+### 2.1 Unified Player Architecture
 
-#### 2.1.1 AudioDecoder
+#### 2.1.1 UnifiedMusicPlayer with Strategy Pattern
+```cpp
+// Player strategy interface
+class PlayerStrategy {
+public:
+    virtual ~PlayerStrategy() = default;
+    virtual bool initialize(AudioEngine* engine) = 0;
+    virtual void optimizePlayback() = 0;
+    virtual bool loadFile(const std::string& filename) = 0;
+    virtual PlaybackState getPlaybackState() const = 0;
+};
+
+// Strategy implementations
+class LegacyStrategy : public PlayerStrategy {
+    // Basic WAV playback only
+    bool initialize(AudioEngine* engine) override {
+        // Initialize minimal components
+        engine->enableFeature(Feature::BasicPlayback);
+        engine->disableFeature(Feature::Plugins);
+        engine->disableFeature(Feature::AdvancedDSP);
+        return true;
+    }
+
+    void optimizePlayback() override {
+        // No optimization needed for legacy mode
+    }
+};
+
+class RealtimeStrategy : public PlayerStrategy {
+    // Low-latency optimized playback
+    bool initialize(AudioEngine* engine) override {
+        engine->enableFeature(Feature::BasicPlayback);
+        engine->enableFeature(Feature::RealtimeOptimization);
+        engine->setBufferSize(64); // Small buffer for low latency
+        engine->enableRealTimePriority();
+        return true;
+    }
+
+    void optimizePlayback() override {
+        // Enable real-time optimizations
+        configureRealTimeAudio();
+        minimizeBuffering();
+    }
+};
+
+class ProductionStrategy : public PlayerStrategy {
+    // Optimized for production use
+    bool initialize(AudioEngine* engine) override {
+        engine->enableFeature(Feature::BasicPlayback);
+        engine->enableFeature(Feature::SIMDOptimization);
+        engine->enableFeature(Feature::AdvancedBuffering);
+        engine->enableFeature(Feature::ErrorRecovery);
+        return true;
+    }
+};
+
+// Unified player using strategy pattern
+class UnifiedMusicPlayer {
+private:
+    std::unique_ptr<PlayerStrategy> strategy_;
+    std::unique_ptr<AudioEngine> audio_engine_;
+    std::unique_ptr<DecoderManager> decoder_manager_;
+    PlayerMode current_mode_;
+
+public:
+    enum class PlayerMode {
+        Legacy,
+        Complete,
+        Realtime,
+        Production,
+        MultiFormat
+    };
+
+    UnifiedMusicPlayer(PlayerMode mode = PlayerMode::MultiFormat)
+        : current_mode_(mode) {
+        setMode(mode);
+    }
+
+    bool setMode(PlayerMode mode) {
+        current_mode_ = mode;
+
+        switch(mode) {
+            case PlayerMode::Legacy:
+                strategy_ = std::make_unique<LegacyStrategy>();
+                break;
+            case PlayerMode::Realtime:
+                strategy_ = std::make_unique<RealtimeStrategy>();
+                break;
+            case PlayerMode::Production:
+                strategy_ = std::make_unique<ProductionStrategy>();
+                break;
+            case PlayerMode::Complete:
+                strategy_ = std::make_unique<CompleteStrategy>();
+                break;
+            case PlayerMode::MultiFormat:
+            default:
+                strategy_ = std::make_unique<MultiFormatStrategy>();
+                break;
+        }
+
+        return strategy_->initialize(audio_engine_.get());
+    }
+
+    bool loadFile(const std::string& filename) {
+        return strategy_->loadFile(filename);
+    }
+
+    void play() {
+        strategy_->optimizePlayback();
+        audio_engine_->startPlayback();
+    }
+};
+```
+
+### 2.2 Decoder Manager with Lazy Loading
+
+#### 2.2.1 DecoderManager Implementation
+```cpp
+class DecoderManager {
+private:
+    std::unordered_map<std::string, std::unique_ptr<AudioDecoder>> decoders_;
+    std::map<std::string, std::function<std::unique_ptr<AudioDecoder>()>> decoder_factories_;
+    mutable std::shared_mutex decoder_mutex_;
+
+public:
+    DecoderManager() {
+        // Register decoder factories
+        decoder_factories_["wav"] = []() {
+            return std::make_unique<WAVDecoder>();
+        };
+        decoder_factories_["mp3"] = []() {
+            return std::make_unique<MP3Decoder>();
+        };
+        decoder_factories_["flac"] = []() {
+            return std::make_unique<FLACDecoder>();
+        };
+        decoder_factories_["ogg"] = []() {
+            return std::make_unique<OGGDecoder>();
+        };
+    }
+
+    AudioDecoder* getDecoder(const std::string& format) {
+        std::shared_lock lock(decoder_mutex_);
+
+        auto it = decoders_.find(format);
+        if (it != decoders_.end()) {
+            return it->second.get();
+        }
+
+        lock.unlock();
+
+        // Need to load the decoder
+        std::unique_lock write_lock(decoder_mutex_);
+
+        // Double-check after acquiring write lock
+        it = decoders_.find(format);
+        if (it != decoders_.end()) {
+            return it->second.get();
+        }
+
+        auto factory_it = decoder_factories_.find(format);
+        if (factory_it == decoder_factories_.end()) {
+            return nullptr;
+        }
+
+        auto decoder = factory_it->second();
+        if (!decoder->initialize()) {
+            return nullptr;
+        }
+
+        AudioDecoder* decoder_ptr = decoder.get();
+        decoders_[format] = std::move(decoder);
+
+        return decoder_ptr;
+    }
+
+    void preloadDecoder(const std::string& format) {
+        // Force decoder loading
+        getDecoder(format);
+    }
+
+    void unloadDecoder(const std::string& format) {
+        std::unique_lock lock(decoder_mutex_);
+        decoders_.erase(format);
+    }
+
+    std::vector<std::string> getSupportedFormats() const {
+        std::shared_lock lock(decoder_mutex_);
+        std::vector<std::string> formats;
+        for (const auto& pair : decoder_factories_) {
+            formats.push_back(pair.first);
+        }
+        return formats;
+    }
+};
+```
+
+### 2.3 Feature Management System
+
+#### 2.3.1 Feature Gating Implementation
+```cpp
+class FeatureManager {
+public:
+    enum Features : uint32_t {
+        BasicPlayback     = 1 << 0,
+        PluginSupport     = 1 << 1,
+        RealtimeMode      = 1 << 2,
+        AdvancedDSP       = 1 << 3,
+        MultiFormat       = 1 << 4,
+        SIMDOptimization  = 1 << 5,
+        AudioVisualization = 1 << 6,
+        AdvancedBuffering = 1 << 7,
+        ErrorRecovery     = 1 << 8,
+        HotPluginReload   = 1 << 9
+    };
+
+private:
+    uint32_t enabled_features_;
+    std::map<Features, std::string> feature_names_;
+
+public:
+    FeatureManager() : enabled_features_(BasicPlayback) {
+        // Initialize feature names
+        feature_names_[BasicPlayback] = "BasicPlayback";
+        feature_names_[PluginSupport] = "PluginSupport";
+        feature_names_[RealtimeMode] = "RealtimeMode";
+        feature_names_[AdvancedDSP] = "AdvancedDSP";
+        feature_names_[MultiFormat] = "MultiFormat";
+        feature_names_[SIMDOptimization] = "SIMDOptimization";
+        feature_names_[AudioVisualization] = "AudioVisualization";
+        feature_names_[AdvancedBuffering] = "AdvancedBuffering";
+        feature_names_[ErrorRecovery] = "ErrorRecovery";
+        feature_names_[HotPluginReload] = "HotPluginReload";
+    }
+
+    void enableFeature(Features feature) {
+        enabled_features_ |= feature;
+    }
+
+    void disableFeature(Features feature) {
+        enabled_features_ &= ~feature;
+    }
+
+    bool isFeatureEnabled(Features feature) const {
+        return enabled_features_ & feature;
+    }
+
+    void setFeatureSet(uint32_t features) {
+        enabled_features_ = features;
+    }
+
+    uint32_t getFeatureSet() const {
+        return enabled_features_;
+    }
+
+    // Convenience methods for feature groups
+    void enableMinimalSet() {
+        enabled_features_ = BasicPlayback;
+    }
+
+    void enableStandardSet() {
+        enabled_features_ = BasicPlayback | MultiFormat | AdvancedBuffering;
+    }
+
+    void enableFullSet() {
+        enabled_features_ = BasicPlayback | PluginSupport | AdvancedDSP |
+                           MultiFormat | SIMDOptimization | AudioVisualization |
+                           AdvancedBuffering | ErrorRecovery | HotPluginReload;
+    }
+
+    void enableRealtimeSet() {
+        enabled_features_ = BasicPlayback | RealtimeMode | AdvancedBuffering |
+                           SIMDOptimization | ErrorRecovery;
+    }
+};
+```
+
+### 2.4 Audio Engine Core
+
+#### 2.4.1 AudioDecoder (Updated with pooling)
 ```cpp
 class AudioDecoder {
 public:
@@ -156,37 +462,200 @@ private:
 };
 ```
 
-#### 2.1.2 AudioBuffer with Advanced Features
+### 2.5 Resource Management
 
+#### 2.5.1 Audio Buffer Pool Implementation
+```cpp
+class AudioBufferPool {
+private:
+    struct BufferInfo {
+        std::unique_ptr<float[]> data;
+        size_t channels;
+        size_t frames;
+        bool in_use;
+    };
+
+    std::vector<BufferInfo> buffers_;
+    mutable std::mutex pool_mutex_;
+    size_t alignment_ = 32; // AVX2 alignment
+
+    float* allocateAlignedMemory(size_t size) {
+#ifdef _WIN32
+        return static_cast<float*>(_aligned_malloc(size, alignment_));
+#else
+        void* ptr = nullptr;
+        if (posix_memalign(&ptr, alignment_, size) != 0) {
+            return nullptr;
+        }
+        return static_cast<float*>(ptr);
+#endif
+    }
+
+    void deallocateAlignedMemory(float* ptr) {
+#ifdef _WIN32
+        _aligned_free(ptr);
+#else
+        free(ptr);
+#endif
+    }
+
+public:
+    AudioBufferPool() = default;
+    ~AudioBufferPool() {
+        std::lock_guard lock(pool_mutex_);
+        for (auto& buffer : buffers_) {
+            deallocateAlignedMemory(buffer.data.get());
+        }
+    }
+
+    std::unique_ptr<AudioBuffer> acquire(size_t channels, size_t frames) {
+        std::lock_guard lock(pool_mutex_);
+
+        // Try to find a free buffer with matching requirements
+        for (auto& buffer : buffers_) {
+            if (!buffer.in_use && buffer.channels >= channels &&
+                buffer.frames >= frames) {
+                buffer.in_use = true;
+                return std::make_unique<PooledAudioBuffer>(
+                    buffer.data.get(), buffer.channels, buffer.frames, this);
+            }
+        }
+
+        // No suitable buffer found, create a new one
+        const size_t total_samples = channels * frames;
+        float* data = allocateAlignedMemory(total_samples * sizeof(float));
+
+        buffers_.push_back({
+            std::unique_ptr<float[]>(data),
+            channels,
+            frames,
+            true
+        });
+
+        return std::make_unique<PooledAudioBuffer>(
+            data, channels, frames, this);
+    }
+
+    void release(AudioBuffer* buffer) {
+        if (!buffer) return;
+
+        std::lock_guard lock(pool_mutex_);
+
+        // Find and mark the buffer as available
+        for (auto& buf : buffers_) {
+            if (buf.data.get() == buffer->data()) {
+                buf.in_use = false;
+                break;
+            }
+        }
+    }
+
+    void prune() {
+        std::lock_guard lock(pool_mutex_);
+        buffers_.erase(
+            std::remove_if(buffers_.begin(), buffers_.end(),
+                [](const BufferInfo& buffer) {
+                    return !buffer.in_use;
+                }),
+            buffers_.end());
+    }
+};
+
+// Pooled audio buffer that automatically returns to pool
+class PooledAudioBuffer : public AudioBuffer {
+private:
+    AudioBufferPool* pool_;
+
+public:
+    PooledAudioBuffer(float* data, size_t channels, size_t frames,
+                     AudioBufferPool* pool)
+        : AudioBuffer(data, channels, frames, false), pool_(pool) {}
+
+    ~PooledAudioBuffer() {
+        if (pool_) {
+            pool_->release(this);
+        }
+    }
+};
+```
+
+#### 2.5.2 Enhanced AudioBuffer with SIMD optimizations
 ```cpp
 class AudioBuffer {
+private:
+    float* data_;
+    int channels_;
+    size_t frames_;
+    size_t capacity_;
+    bool owns_data_;
+
 public:
     AudioBuffer(int channels, size_t frames)
         : channels_(channels), frames_(frames)
-        , data_(nullptr), capacity_(frames) {
+        , capacity_(frames), owns_data_(true) {
         allocateMemory();
+    }
+
+    AudioBuffer(float* external_data, int channels, size_t frames, bool copy = false)
+        : channels_(channels), frames_(frames)
+        , capacity_(frames), owns_data_(copy) {
+        if (copy) {
+            allocateMemory();
+            memcpy(data_, external_data, channels * frames * sizeof(float));
+        } else {
+            data_ = external_data;
+        }
+    }
+
+    ~AudioBuffer() {
+        if (owns_data_ && data_) {
+            deallocateMemory();
+        }
     }
 
     // Memory management with alignment for SIMD
     void allocateMemory() {
         const size_t alignment = 32; // AVX2 requires 32-byte alignment
+        const size_t size = channels_ * frames_ * sizeof(float);
 
 #ifdef _WIN32
-        data_ = static_cast<float*>(_aligned_malloc(
-            channels_ * frames_ * sizeof(float), alignment));
+        data_ = static_cast<float*>(_aligned_malloc(size, alignment));
 #else
-        posix_memalign(reinterpret_cast<void**>(&data_),
-                      alignment, channels_ * frames_ * sizeof(float));
+        if (posix_memalign(reinterpret_cast<void**>(&data_), alignment, size) != 0) {
+            data_ = nullptr;
+        }
 #endif
+
+        if (!data_) {
+            throw std::bad_alloc();
+        }
     }
 
-    // Channel access
+    void deallocateMemory() {
+#ifdef _WIN32
+        _aligned_free(data_);
+#else
+        free(data_);
+#endif
+        data_ = nullptr;
+    }
+
+    // Channel access (non-interleaved)
     float* getChannel(int channel) {
         return data_ + channel * frames_;
     }
 
     const float* getChannel(int channel) const {
         return data_ + channel * frames_;
+    }
+
+    // Interleaved access
+    float* getInterleaved() {
+        return data_;
+    }
+
+    const float* getInterleaved() const {
+        return data_;
     }
 
     // SIMD operations
@@ -212,6 +681,8 @@ public:
 
 #ifdef __AVX2__
         mixAVX2(data_, other.data_, total_samples, gain);
+#elif defined(__SSE2__)
+        mixSSE2(data_, other.data_, total_samples, gain);
 #else
         for (size_t i = 0; i < total_samples; ++i) {
             data_[i] += other.data_[i] * gain;
@@ -219,11 +690,21 @@ public:
 #endif
     }
 
+    // Convert between interleaved and planar
+    void toPlanar() {
+        // Implementation for converting interleaved to planar format
+    }
+
+    void toInterleaved() {
+        // Implementation for converting planar to interleaved format
+    }
+
 private:
-    float* data_;
-    int channels_;
-    size_t frames_;
-    size_t capacity_;
+    // SIMD implementation functions
+    void applyGainAVX2(float* data, size_t samples, float gain);
+    void applyGainSSE2(float* data, size_t samples, float gain);
+    void mixAVX2(float* dest, const float* src, size_t samples, float gain);
+    void mixSSE2(float* dest, const float* src, size_t samples, float gain);
 };
 ```
 
@@ -640,28 +1121,327 @@ public:
 - **Playlist Settings**: Auto-save, repeat mode, shuffle
 - **Plugin Settings**: Enabled plugins, plugin configurations
 
-## 6. Threading Model
+## 6. Threading Model (Updated)
 
 ### 6.1 Thread Architecture
 ```
-Main Thread (GUI)
+Main Thread (GUI & Event Dispatch)
     │
     ├─── Audio Thread (Real-time audio processing)
+    │   │   ├─── Lock-free audio queue
+    │   │   └─── SIMD-optimized processing
+    │   │
+    ├─── Decoder Thread Pool (File decoding)
+    │   ├─── Thread-local decoders
+    │   └─── Lazy loading management
+    │   │
+    ├─── I/O Thread (File operations)
+    │   └─── Asynchronous I/O operations
     │
-    ├─── Decoder Thread (File decoding)
-    │
-    └─── Worker Thread (Background tasks)
+    └─── Worker Thread Pool (Background tasks)
+        ├─── Plugin processing
+        ├─── Metadata extraction
+        └─── Configuration I/O
 ```
 
-### 6.2 Thread Safety
-- All GUI updates must happen on main thread
-- Audio processing runs on dedicated audio thread
-- Thread-safe queues for audio data
-- Lock-free structures for performance-critical paths
+### 6.2 Thread Safety Strategy (Enhanced)
 
-## 7. Memory Management
+#### 6.2.1 Synchronization Primitives
+```cpp
+// Thread-safe audio engine core
+class AudioEngine {
+private:
+    // Audio data protection - No mutex for real-time path
+    alignas(64) std::atomic<float> volume_{1.0f};
+    alignas(64) std::atomic<PlaybackState> state_{PlaybackState::Stopped};
 
-### 7.1 Audio Buffer Management
+    // Configuration protection - RW lock for read-heavy operations
+    mutable std::shared_mutex config_mutex_;
+    AudioFormat current_format_;
+
+    // Decoder cache protection - Mutex with low contention
+    mutable std::mutex decoder_mutex_;
+    std::unordered_map<std::string, std::unique_ptr<AudioDecoder>> decoders_;
+
+    // Cross-thread communication - Lock-free queues
+    moodycamel::ConcurrentQueue<AudioCommand> command_queue_;
+    moodycamel::ConcurrentQueue<AudioEvent> event_queue_;
+
+public:
+    // Real-time audio callback (no locking!)
+    void audioCallback(float* output, size_t frames) {
+        // Fast path - no mutexes
+        if (state_.load(std::memory_order_acquire) == PlaybackState::Playing) {
+            const float vol = volume_.load(std::memory_order_relaxed);
+            processAudioWithSIMD(output, frames, vol);
+        }
+    }
+
+    // Configuration update (write lock)
+    void updateFormat(const AudioFormat& format) {
+        std::unique_lock lock(config_mutex_);
+        current_format_ = format;
+        notifyFormatChange(format);
+    }
+
+    // Decoder access (double-checked locking)
+    AudioDecoder* getDecoder(const std::string& format) {
+        {
+            std::shared_lock lock(config_mutex_);
+            auto it = decoders_.find(format);
+            if (it != decoders_.end()) {
+                return it->second.get();
+            }
+        }
+
+        // Need to load decoder
+        std::unique_lock lock(config_mutex_);
+        // Double-check pattern
+        auto it = decoders_.find(format);
+        if (it != decoders_.end()) {
+            return it->second.get();
+        }
+
+        return loadDecoder(format);
+    }
+};
+```
+
+#### 6.2.2 Deadlock Prevention Rules
+
+1. **Lock Ordering**: Always acquire locks in the same order
+   ```cpp
+   // Correct order
+   config_mutex_  ->  decoder_mutex_  ->  plugin_mutex_
+   ```
+
+2. **Lock Duration**: Minimize lock holding time
+   ```cpp
+   // Bad - long critical section
+   std::lock_guard<std::mutex> lock(mutex_);
+   longOperation();  // Might take seconds
+
+   // Good - copy data, process outside lock
+   Data copy;
+   {
+       std::lock_guard<std::mutex> lock(mutex_);
+       copy = data_;
+   }
+   longOperation();
+   ```
+
+3. **Avoid Nested Locks**: Use lock-free alternatives when possible
+
+#### 6.2.3 Thread-Local Storage Optimization
+```cpp
+// Thread-local decoder to avoid contention
+thread_local std::unique_ptr<AudioDecoder> t_local_decoder_;
+
+AudioDecoder* DecoderManager::getThreadLocalDecoder(const std::string& format) {
+    if (!t_local_decoder_ || t_local_decoder_->getFormat() != format) {
+        t_local_decoder_ = createDecoder(format);
+    }
+    return t_local_decoder_.get();
+}
+```
+
+### 6.3 Memory Ordering (Explicit)
+
+```cpp
+class PlayerState {
+private:
+    std::atomic<PlaybackState> state_;
+    std::atomic<uint64_t> position_frames_;
+    std::atomic<bool> seek_requested_;
+
+public:
+    void requestSeek(uint64_t position) {
+        position_frames_.store(position, std::memory_order_release);
+        seek_requested_.store(true, std::memory_order_release);
+    }
+
+    bool checkSeekRequest(uint64_t& out_position) {
+        if (seek_requested_.load(std::memory_order_acquire)) {
+            out_position = position_frames_.load(std::memory_order_acquire);
+            seek_requested_.store(false, std::memory_order_release);
+            return true;
+        }
+        return false;
+    }
+};
+```
+
+### 6.4 Thread Affinity and Priority
+
+```cpp
+class ThreadManager {
+public:
+    void configureAudioThread(std::thread& thread) {
+#ifdef _WIN32
+        // Set real-time priority
+        SetThreadPriority(thread.native_handle(), THREAD_PRIORITY_TIME_CRITICAL);
+
+        // Set CPU affinity (avoid core 0 which might be busy with system)
+        SetThreadAffinityMask(thread.native_handle(), 0x2); // Core 1
+
+        // Disable timer resolution coalescing
+        timeBeginPeriod(1);
+#else
+        // Linux equivalent
+        sched_param param;
+        param.sched_priority = 99;
+        pthread_setschedparam(thread.native_handle(), SCHED_FIFO, &param);
+
+        cpu_set_t cpuset;
+        CPU_ZERO(&cpuset);
+        CPU_SET(1, &cpuset);
+        pthread_setaffinity_np(thread.native_handle(), sizeof(cpuset), &cpuset);
+#endif
+    }
+};
+```
+
+## 7. Error Handling Framework (New)
+
+### 7.1 Unified Error Handling
+
+coreMusicPlayer uses a Result<T> type for error propagation, eliminating exceptions for better performance and explicit error handling:
+
+```cpp
+#include "result.h"
+#include "error.h"
+
+// All API functions return Result
+Result<void> AudioEngine::initialize(const AudioConfig& config) {
+    if (!initializeDevice(config)) {
+        return Result<void>::error(
+            Error(ErrorCategory::AudioInitialization,
+                  "Failed to initialize audio device")
+                .addContext("device", config.deviceName)
+                .addContext("sample_rate", config.sampleRate)
+        );
+    }
+
+    auto bufferResult = allocateBuffers(config);
+    if (bufferResult.isError()) {
+        return Result<void>::error(bufferResult.getError());
+    }
+
+    return Result<void>::success();
+}
+```
+
+### 7.2 Error Recovery Strategies
+
+#### 7.2.1 Automatic Recovery
+```cpp
+class AudioOutput {
+private:
+    VoidResult handleBufferUnderrun() {
+        // Increase buffer size
+        current_buffer_size_ *= 2;
+        if (current_buffer_size_ > MAX_BUFFER_SIZE) {
+            return VoidResult::error(
+                Error(ErrorCategory::AudioBufferOverrun,
+                      "Maximum buffer size exceeded")
+                    .addContext("current_size", current_buffer_size_));
+        }
+
+        return reinitializeBuffers();
+    }
+
+public:
+    VoidResult writeAudio(const AudioBuffer& buffer) {
+        auto result = writeToDevice(buffer);
+        if (result.isError()) {
+            auto& error = result.getError();
+
+            // Attempt recovery based on error type
+            if (error.getCategory() == ErrorCategory::AudioBufferUnderrun) {
+                auto recoveryResult = handleBufferUnderrun();
+                if (recoveryResult.isSuccess()) {
+                    // Retry write after recovery
+                    return writeToDevice(buffer);
+                }
+            }
+
+            return VoidResult::error(error);
+        }
+
+        return VoidResult::success();
+    }
+};
+```
+
+#### 7.2.2 Graceful Degradation
+```cpp
+class SampleRateConverter {
+public:
+    Result<AudioBuffer> convert(const AudioBuffer& input,
+                               int targetRate,
+                               Quality desiredQuality) {
+        // Try desired quality first
+        auto result = convertWithQuality(input, targetRate, desiredQuality);
+        if (result.isSuccess()) {
+            return result;
+        }
+
+        // Fall back progressively
+        if (desiredQuality > Quality::Good) {
+            logWarning("Falling back to Good quality");
+            return convertWithQuality(input, targetRate, Quality::Good);
+        }
+
+        if (desiredQuality > Quality::Fast) {
+            logWarning("Falling back to Fast quality");
+            return convertWithQuality(input, targetRate, Quality::Fast);
+        }
+
+        return Result<AudioBuffer>::error(
+            Error(ErrorCategory::UnsupportedFormat,
+                  "All conversion quality levels failed"));
+    }
+};
+```
+
+### 7.3 Error Context and Debugging
+
+```cpp
+// Rich error context for debugging
+class AudioDecoder {
+public:
+    Result<AudioFormat> detectFormat(const std::string& filename) {
+        FILE* file = fopen(filename.c_str(), "rb");
+        if (!file) {
+            return Result<AudioFormat>::error(
+                Error(ErrorCategory::FileNotFound,
+                      "Cannot open file for reading")
+                    .addContext("filename", filename)
+                    .addContext("errno", errno)
+                    .addContext("working_directory", getCurrentDirectory()));
+        }
+
+        // Read header...
+        Header header;
+        if (fread(&header, sizeof(header), 1, file) != 1) {
+            fclose(file);
+            return Result<AudioFormat>::error(
+                Error(ErrorCategory::FileCorrupted,
+                      "Failed to read file header")
+                    .addContext("filename", filename)
+                    .addContext("file_size", getFileSize(filename))
+                    .addContext("header_size", sizeof(header)));
+        }
+
+        fclose(file);
+        return Result<AudioFormat>::success(parseFormat(header));
+    }
+};
+```
+
+## 8. Memory Management
+
+### 8.1 Audio Buffer Management
 ```cpp
 class AudioBuffer {
 private:
@@ -676,7 +1456,7 @@ public:
 };
 ```
 
-### 7.2 Resource Pool
+### 8.2 Resource Pool
 ```cpp
 template<typename T>
 class ResourcePool {
@@ -690,9 +1470,9 @@ public:
 };
 ```
 
-## 8. Platform Specifics
+## 9. Platform Specifics
 
-### 8.1 Windows (WASAPI)
+### 9.1 Windows (WASAPI)
 ```cpp
 class WASAPIOutput : public AudioOutput {
 private:
@@ -710,7 +1490,7 @@ public:
 };
 ```
 
-### 8.2 Linux (ALSA)
+### 9.2 Linux (ALSA)
 ```cpp
 class ALSAOutput : public AudioOutput {
 private:
@@ -722,37 +1502,6 @@ public:
     bool write(const AudioBuffer& buffer) override;
 };
 ```
-
-## 9. Error Handling
-
-### 9.1 Error Types
-```cpp
-enum class ErrorCode {
-    Success = 0,
-    FileNotFound,
-    UnsupportedFormat,
-    DeviceError,
-    MemoryError,
-    PluginError
-};
-
-class AudioException : public std::exception {
-private:
-    ErrorCode error_code_;
-    std::string message_;
-
-public:
-    AudioException(ErrorCode code, const std::string& msg);
-    const char* what() const noexcept override;
-    ErrorCode getErrorCode() const { return error_code_; }
-};
-```
-
-### 9.2 Error Recovery
-- Automatic device switching on failure
-- Graceful fallback to software resampling
-- Plugin isolation and recovery
-- Crash reporting and diagnostics
 
 ## 10. Performance Optimizations
 

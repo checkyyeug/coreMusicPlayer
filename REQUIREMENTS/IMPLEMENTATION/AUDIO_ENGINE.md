@@ -2,37 +2,53 @@
 
 ## 1. Overview
 
-The coreMusicPlayer Audio Engine is a high-performance, cross-platform audio processing system designed for low-latency playback and high-quality audio processing. It supports multiple audio formats, sample rate conversion, and platform-specific audio output APIs.
+The coreMusicPlayer Audio Engine is a high-performance, cross-platform audio processing system designed for low-latency playback and high-quality audio processing. It supports multiple audio formats, sample rate conversion, and platform-specific audio output APIs. **[重点]** The engine has been redesigned to support a unified player architecture with mode-based feature selection and lazy loading of components.
+
+## 1.1 Key Architecture Changes
+
+- **Unified Player**: Single engine supporting 5 different player modes
+- **Lazy Loading**: Decoders and plugins loaded only when needed
+- **Resource Pooling**: Efficient memory management with buffer pools
+- **Feature Gating**: Fine-grained control over enabled features
+- **Improved Thread Safety**: Better separation of audio, I/O, and UI threads
 
 ## 2. Architecture
 
 ### 2.1 Core Components
 
 ```
-Audio Engine
+Unified Audio Engine
+├── Player Mode Management
+│   ├── Strategy Pattern (Legacy/Realtime/Production/etc.)
+│   ├── Feature Manager (bitset-based gating)
+│   └── Mode Switcher (runtime mode changes)
 ├── Audio Buffer Management
-│   ├── AudioBuffer (multi-channel data)
-│   ├── BufferPool (memory management)
-│   └── RingBuffer (thread-safe queue)
-├── Audio Decoders
-│   ├── WAV Decoder (dr_wav)
+│   ├── AudioBuffer (SIMD-optimized, aligned)
+│   ├── BufferPool (RAII, thread-safe)
+│   ├── RingBuffer (lock-free for audio thread)
+│   └── Memory Manager (aligned allocations)
+├── Decoder Manager
+│   ├── Lazy Loading System
+│   ├── Format Registry
+│   ├── WAV Decoder (dr_wag)
 │   ├── MP3 Decoder (minimp3)
 │   ├── FLAC Decoder (builtin)
 │   └── OGG Decoder (stb_vorbis)
-├── Audio Processing
-│   ├── Sample Rate Converter
-│   ├── DSP Effects
-│   ├── Volume Control
-│   └── Channel Mapping
-├── Audio Output
-│   ├── WASAPI Output (Windows)
-│   ├── ALSA Output (Linux)
-│   ├── CoreAudio Output (macOS)
-│   └── AudioOutput Interface
-└── Threading
-    ├── Audio Thread (real-time)
-    ├── Decoder Thread (background)
-    └── Callback Thread (events)
+├── Audio Processing Pipeline
+│   ├── Sample Rate Converter (SIMD-optimized)
+│   ├── DSP Chain (plugin-based)
+│   ├── Volume Control (atomic updates)
+│   └── Channel Mixer (configurable)
+├── Audio Output System
+│   ├── WASAPI Output (Windows, low-latency)
+│   ├── ALSA Output (Linux, real-time)
+│   ├── CoreAudio Output (macOS, planned)
+│   └── Device Manager (hot-plug support)
+└── Threading Architecture
+    ├── Audio Thread (real-time priority)
+    ├── Decoder Thread (background pool)
+    ├── I/O Thread (file operations)
+    └── UI Thread (event callbacks)
 ```
 
 ### 2.2 Data Flow
@@ -57,37 +73,59 @@ Hardware Device
 
 ## 3. Audio Buffer Management
 
-### 3.1 AudioBuffer Class
+### 3.1 Enhanced AudioBuffer Class (Updated)
+
+**[重点]** The AudioBuffer has been redesigned for better performance and memory management:
 
 ```cpp
 class AudioBuffer {
 public:
-    // Constructor
+    // Constructors
     AudioBuffer(int channels, size_t frames);
+    AudioBuffer(float* external_data, int channels, size_t frames, bool copy = false);
+    ~AudioBuffer();
 
     // Data access
     float* getChannel(int channel);
     const float* getChannel(int channel) const;
+    float* getInterleaved();
+    const float* getInterleaved() const;
 
     // Buffer operations
     bool resize(size_t newFrames);
     void clear();
     void copyFrom(const AudioBuffer& other);
+    void toPlanar();      // Convert interleaved to planar
+    void toInterleaved(); // Convert planar to interleaved
 
     // Properties
-    int getChannels() const;
-    size_t getFrames() const;
-    size_t getSamples() const;
+    int getChannels() const { return channels_; }
+    size_t getFrames() const { return frames_; }
+    size_t getSamples() const { return channels_ * frames_; }
 
-    // SIMD operations
+    // SIMD operations (auto-detected at runtime)
     void applyGain(float gain);
     void mixWith(const AudioBuffer& other, float gain = 1.0f);
+    void applyFadeIn(size_t frames);
+    void applyFadeOut(size_t frames);
 
 private:
+    float* data_;
     int channels_;
     size_t frames_;
-    std::unique_ptr<float[]> data_;
-    size_t alignment_;
+    size_t capacity_;
+    bool owns_data_;
+    static constexpr size_t SIMD_ALIGNMENT = 32;
+
+    // Memory management
+    void allocateMemory();
+    void deallocateMemory();
+
+    // SIMD implementations
+    void applyGainAVX2(float* data, size_t samples, float gain);
+    void applyGainSSE2(float* data, size_t samples, float gain);
+    void mixAVX2(float* dest, const float* src, size_t samples, float gain);
+    void mixSSE2(float* dest, const float* src, size_t samples, float gain);
 };
 ```
 
@@ -114,36 +152,230 @@ private:
 };
 ```
 
-### 3.3 Buffer Pool
+### 3.3 Advanced Buffer Pool (Updated)
+
+**[重点]** Improved buffer pool with automatic resource management:
 
 ```cpp
-template<typename T>
-class BufferPool {
+class AudioBufferPool {
+private:
+    struct BufferInfo {
+        std::unique_ptr<float[]> data;
+        size_t channels;
+        size_t frames;
+        bool in_use;
+        std::chrono::steady_clock::time_point last_used;
+    };
+
+    std::vector<BufferInfo> buffers_;
+    mutable std::shared_mutex pool_mutex_;
+    size_t alignment_ = 32;
+    std::atomic<size_t> total_allocated_{0};
+    std::atomic<size_t> max_allocation_{1024 * 1024 * 1024}; // 1GB limit
+
 public:
-    std::unique_ptr<T> acquire() {
-        std::lock_guard<std::mutex> lock(mutex_);
-        if (pool_.empty()) {
-            return std::make_unique<T>();
+    // RAII buffer handle
+    class BufferHandle {
+    private:
+        AudioBuffer* buffer_;
+        AudioBufferPool* pool_;
+
+    public:
+        BufferHandle(AudioBuffer* buffer, AudioBufferPool* pool)
+            : buffer_(buffer), pool_(pool) {}
+
+        ~BufferHandle() {
+            if (pool_ && buffer_) {
+                pool_->release(buffer_);
+            }
         }
-        auto buffer = std::move(pool_.back());
-        pool_.pop_back();
-        return buffer;
+
+        AudioBuffer* get() const { return buffer_; }
+        AudioBuffer* operator->() const { return buffer_; }
+    };
+
+    // Acquire buffer with automatic return
+    std::unique_ptr<BufferHandle> acquire(size_t channels, size_t frames) {
+        std::unique_lock lock(pool_mutex_);
+
+        // Try to reuse existing buffer
+        for (auto& buffer : buffers_) {
+            if (!buffer.in_use && buffer.channels >= channels &&
+                buffer.frames >= frames) {
+                buffer.in_use = true;
+                buffer.last_used = std::chrono::steady_clock::now();
+                lock.unlock();
+
+                auto audio_buffer = std::make_unique<AudioBuffer>(
+                    buffer.data.get(), channels, frames);
+                return std::make_unique<BufferHandle>(audio_buffer.get(), this);
+            }
+        }
+
+        // Check memory limit
+        size_t needed = channels * frames * sizeof(float);
+        if (total_allocated_ + needed > max_allocation_) {
+            pruneUnusedBuffers();
+        }
+
+        // Allocate new buffer
+        float* data = allocateAlignedMemory(needed);
+        buffers_.push_back({
+            std::unique_ptr<float[]>(data),
+            channels,
+            frames,
+            true,
+            std::chrono::steady_clock::now()
+        });
+
+        total_allocated_ += needed;
+
+        lock.unlock();
+
+        auto audio_buffer = std::make_unique<AudioBuffer>(
+            data, channels, frames);
+        return std::make_unique<BufferHandle>(audio_buffer.get(), this);
     }
 
-    void release(std::unique_ptr<T> buffer) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        pool_.push_back(std::move(buffer));
+    // Release buffer back to pool
+    void release(AudioBuffer* buffer) {
+        if (!buffer) return;
+
+        std::lock_guard lock(pool_mutex_);
+
+        for (auto& buf : buffers_) {
+            if (buf.data.get() == buffer->data()) {
+                buf.in_use = false;
+                buf.last_used = std::chrono::steady_clock::now();
+                break;
+            }
+        }
+    }
+
+    // Clean up old unused buffers
+    void pruneUnusedBuffers(std::chrono::minutes max_age = std::chrono::minutes(5)) {
+        std::lock_guard lock(pool_mutex_);
+
+        auto now = std::chrono::steady_clock::now();
+        auto it = std::remove_if(buffers_.begin(), buffers_.end(),
+            [this, &now, max_age](const BufferInfo& buffer) {
+                if (!buffer.in_use &&
+                    (now - buffer.last_used) > max_age) {
+                    total_allocated_ -= buffer.channels * buffer.frames * sizeof(float);
+                    return true;
+                }
+                return false;
+            });
+
+        buffers_.erase(it, buffers_.end());
     }
 
 private:
-    std::vector<std::unique_ptr<T>> pool_;
-    std::mutex mutex_;
+    float* allocateAlignedMemory(size_t size) {
+#ifdef _WIN32
+        return static_cast<float*>(_aligned_malloc(size, alignment_));
+#else
+        void* ptr = nullptr;
+        if (posix_memalign(&ptr, alignment_, size) != 0) {
+            throw std::bad_alloc();
+        }
+        return static_cast<float*>(ptr);
+#endif
+    }
 };
 ```
 
 ## 4. Audio Decoders
 
-### 4.1 Decoder Interface
+### 4.1 Decoder Manager (New)
+
+**[重点]** The DecoderManager provides lazy loading and caching of audio decoders:
+
+```cpp
+class DecoderManager {
+private:
+    std::unordered_map<std::string, std::unique_ptr<AudioDecoder>> decoders_;
+    std::map<std::string, std::function<std::unique_ptr<AudioDecoder>()>> decoder_factories_;
+    mutable std::shared_mutex decoder_mutex_;
+    std::unique_ptr<AudioBufferPool> buffer_pool_;
+
+public:
+    DecoderManager() : buffer_pool_(std::make_unique<AudioBufferPool>()) {
+        // Register decoder factories
+        registerDefaultDecoders();
+    }
+
+    // Get decoder for format (lazy loading)
+    AudioDecoder* getDecoder(const std::string& format) {
+        std::shared_lock lock(decoder_mutex_);
+
+        auto it = decoders_.find(format);
+        if (it != decoders_.end()) {
+            return it->second.get();
+        }
+
+        lock.unlock();
+
+        // Need to load the decoder
+        std::unique_lock write_lock(decoder_mutex_);
+
+        // Double-check after acquiring write lock
+        it = decoders_.find(format);
+        if (it != decoders_.end()) {
+            return it->second.get();
+        }
+
+        auto factory_it = decoder_factories_.find(format);
+        if (factory_it == decoder_factories_.end()) {
+            return nullptr;
+        }
+
+        auto decoder = factory_it->second();
+        if (!decoder->initialize()) {
+            return nullptr;
+        }
+
+        AudioDecoder* decoder_ptr = decoder.get();
+        decoders_[format] = std::move(decoder);
+
+        return decoder_ptr;
+    }
+
+    // Preload decoder (useful for startup optimization)
+    void preloadDecoder(const std::string& format) {
+        getDecoder(format);
+    }
+
+    // Unload decoder to free memory
+    void unloadDecoder(const std::string& format) {
+        std::unique_lock lock(decoder_mutex_);
+        decoders_.erase(format);
+    }
+
+    // Get buffer pool for audio operations
+    AudioBufferPool* getBufferPool() const {
+        return buffer_pool_.get();
+    }
+
+private:
+    void registerDefaultDecoders() {
+        decoder_factories_["wav"] = []() {
+            return std::make_unique<WAVDecoder>();
+        };
+        decoder_factories_["mp3"] = []() {
+            return std::make_unique<MP3Decoder>();
+        };
+        decoder_factories_["flac"] = []() {
+            return std::make_unique<FLACDecoder>();
+        };
+        decoder_factories_["ogg"] = []() {
+            return std::make_unique<OGGDecoder>();
+        };
+    }
+};
+```
+
+### 4.2 Enhanced Decoder Interface (Updated)
 
 ```cpp
 class AudioDecoder {
@@ -822,37 +1054,343 @@ public:
             state_ = State::Playing;
             return true;
 
-        } catch (const AudioException& e) {
-            // Attempt recovery
-            if (e.getError() == AudioError::DeviceInUse) {
-                // Try alternative device
-                return startWithAlternativeDevice();
-            }
+    }
+}
+```
 
-            // Log error
-            logError(e.what());
-            return false;
+## 10. Error Handling and Recovery (Updated)
+
+### 10.1 Unified Error Handling
+
+Using the Result<T> type for thread-safe error propagation:
+
+```cpp
+// Thread-safe audio output with Result-based error handling
+class AudioOutput {
+private:
+    std::atomic<State> state_{State::Stopped};
+    std::atomic<Error> last_error_;
+    moodycamel::ConcurrentQueue<AudioCommand> command_queue_;
+
+public:
+    // Thread-safe start with Result
+    VoidResult start() {
+        // Validate state
+        State expected = State::Stopped;
+        if (!state_.compare_exchange_strong(expected, State::Starting)) {
+            return VoidResult::error(
+                Error(ErrorCategory::InvalidState,
+                      "Cannot start: device already running or transitioning")
+                    .addContext("current_state", static_cast<int>(expected)));
+        }
+
+        auto initResult = initializeDevice();
+        if (initResult.isError()) {
+            state_.store(State::Stopped);
+            last_error_.store(initResult.getError());
+            return initResult;
+        }
+
+        auto threadResult = startAudioThread();
+        if (threadResult.isError()) {
+            state_.store(State::Stopped);
+            last_error_.store(threadResult.getError());
+            cleanupDevice();
+            return threadResult;
+        }
+
+        state_.store(State::Playing);
+        return VoidResult::success();
+    }
+
+    // Real-time audio callback with error handling
+    void audioCallback(float* output, size_t frames) noexcept {
+        // Fast path - no error checking in hot path
+        if (state_.load(std::memory_order_acquire) != State::Playing) {
+            // Clear buffer to silence
+            std::fill_n(output, frames * format_.channels, 0.0f);
+            return;
+        }
+
+        // Try to get audio data
+        auto dataResult = audioBufferPool_.tryDequeue(frames);
+        if (dataResult.isSuccess()) {
+            auto& buffer = dataResult.getValue();
+            std::copy(buffer.data(), buffer.data() + buffer.size(), output);
+        } else {
+            // Handle underrun
+            std::fill_n(output, frames * format_.channels, 0.0f);
+
+            // Report error without blocking
+            Error underrunError(ErrorCategory::AudioBufferUnderrun,
+                              "Audio buffer underrun detected",
+                              ErrorSeverity::Warning);
+            last_error_.store(underrunError);
+            reportErrorAsync(underrunError);
+
+            // Try to recover
+            handleBufferUnderrun();
         }
     }
 
 private:
-    bool startWithAlternativeDevice() {
-        auto devices = getAvailableDevices();
-        for (const auto& device : devices) {
-            if (device != currentDevice_) {
-                if (setDevice(device)) {
-                    return start();
-                }
-            }
+    void handleBufferUnderrun() {
+        // Increase buffer size gradually
+        if (buffer_size_ < MAX_BUFFER_SIZE) {
+            buffer_size_ = std::min(buffer_size_ * 2, MAX_BUFFER_SIZE);
+
+            // Queue command to reconfigure buffers
+            AudioCommand cmd{AudioCommand::ReconfigureBuffers};
+            cmd.buffer_size = buffer_size_;
+            command_queue_.enqueue(cmd);
         }
-        return false;
     }
 };
 ```
 
-## 10. Testing
+### 10.2 Error Recovery Mechanisms
 
-### 10.1 Unit Tests
+```cpp
+class ErrorRecoveryManager {
+private:
+    std::unordered_map<ErrorCategory, std::function<BoolResult(const Error&)>> recovery_strategies_;
+
+public:
+    ErrorRecoveryManager() {
+        // Register recovery strategies
+        recovery_strategies_[ErrorCategory::AudioDeviceNotFound] =
+            [this](const Error& err) { return recoverFromDeviceError(err); };
+        recovery_strategies_[ErrorCategory::AudioBufferUnderrun] =
+            [this](const Error& err) { return recoverFromBufferUnderrun(err); };
+        recovery_strategies_[ErrorCategory::PluginLoadFailed] =
+            [this](const Error& err) { return recoverFromPluginError(err); };
+    }
+
+    BoolResult attemptRecovery(const Error& error) {
+        auto it = recovery_strategies_.find(error.getCategory());
+        if (it != recovery_strategies_.end()) {
+            return it->second(error);
+        }
+
+        // No recovery strategy available
+        return BoolResult::error(error);
+    }
+
+private:
+    BoolResult recoverFromDeviceError(const Error& error) {
+        // Try to find alternative device
+        auto devices = AudioDeviceManager::enumerateDevices();
+        for (const auto& device : devices) {
+            if (device.id != error.getContext("failed_device")) {
+                auto initResult = AudioDeviceManager::initializeDevice(device);
+                if (initResult.isSuccess()) {
+                    logInfo("Recovered from device error using: " + device.name);
+                    return BoolResult::success(true);
+                }
+            }
+        }
+
+        // All devices failed
+        return BoolResult::error(
+            Error(ErrorCategory::AudioDeviceNotFound,
+                  "No working audio devices available",
+                  ErrorSeverity::Critical));
+    }
+
+    BoolResult recoverFromBufferUnderrun(const Error& error) {
+        // Increase buffer size
+        size_t currentSize = std::stoull(error.getContext("buffer_size"));
+        size_t newSize = std::min(currentSize * 2, MAX_BUFFER_SIZE);
+
+        auto reconfigureResult = AudioBufferManager::reconfigureBuffers(newSize);
+        if (reconfigureResult.isSuccess()) {
+            logWarning("Recovered from buffer underrun by increasing buffer to " +
+                      std::to_string(newSize));
+            return BoolResult::success(true);
+        }
+
+        return BoolResult::error(
+            Error(ErrorCategory::AudioBufferOverrun,
+                  "Failed to recover from buffer underrun"));
+    }
+};
+```
+
+## 11. Thread Safety Guidelines (New)
+
+### 11.1 Thread-Safe API Design
+
+```cpp
+// Thread-safe player interface
+class ThreadSafeAudioPlayer {
+private:
+    mutable std::shared_mutex state_mutex_;
+    std::atomic<PlayerState> atomic_state_{PlayerState::Stopped};
+    std::atomic<float> volume_{1.0f};
+
+    // Use atomic flags for simple state
+    std::atomic<bool> is_seeking_{false};
+    std::atomic<uint64_t> seek_position_{0};
+
+    // Thread-safe queue for commands
+    moodycamel::ConcurrentQueue<PlayerCommand> command_queue_;
+
+public:
+    // Thread-safe play/pause
+    VoidResult play() {
+        PlayerState expected = PlayerState::Stopped;
+        if (atomic_state_.compare_exchange_strong(expected, PlayerState::Playing)) {
+            // Notify audio thread
+            command_queue_.enqueue({PlayerCommand::StartPlayback});
+            return VoidResult::success();
+        }
+        return VoidResult::error(
+            Error(ErrorCategory::InvalidState, "Already playing"));
+    }
+
+    VoidResult pause() {
+        PlayerState expected = PlayerState::Playing;
+        if (atomic_state_.compare_exchange_strong(expected, PlayerState::Paused)) {
+            command_queue_.enqueue({PlayerCommand::PausePlayback});
+            return VoidResult::success();
+        }
+        return VoidResult::error(
+            Error(ErrorCategory::InvalidState, "Not playing"));
+    }
+
+    // Thread-safe volume control
+    void setVolume(float newVolume) {
+        volume_.store(std::clamp(newVolume, 0.0f, 1.0f),
+                      std::memory_order_relaxed);
+    }
+
+    float getVolume() const {
+        return volume_.load(std::memory_order_relaxed);
+    }
+
+    // Thread-safe seek with atomic operations
+    VoidResult seek(double position) {
+        // Set seek flag and position atomically
+        seek_position_.store(static_cast<uint64_t>(position * getSampleRate()),
+                           std::memory_order_release);
+        is_seeking_.store(true, std::memory_order_release);
+
+        // Command audio thread
+        command_queue_.enqueue({PlayerCommand::Seek});
+        return VoidResult::success();
+    }
+
+    // Audio thread checks for seek requests
+    bool checkSeekRequest(uint64_t& outPosition) {
+        if (is_seeking_.load(std::memory_order_acquire)) {
+            outPosition = seek_position_.load(std::memory_order_acquire);
+            is_seeking_.store(false, std::memory_order_release);
+            return true;
+        }
+        return false;
+    }
+
+    // Thread-safe state query
+    PlayerState getState() const {
+        // Read atomic value for fast path
+        return atomic_state_.load(std::memory_order_acquire);
+    }
+
+    // For complex operations, use shared mutex
+    TrackInfo getCurrentTrack() const {
+        std::shared_lock lock(state_mutex_);
+        return current_track_;
+    }
+};
+```
+
+### 11.2 Lock-Free Data Structures
+
+```cpp
+// Lock-free audio buffer queue for real-time audio
+template<typename T, size_t Size>
+class LockFreeQueue {
+private:
+    static constexpr size_t BUFFER_SIZE = Size + 1; // One extra slot
+    std::array<T, BUFFER_SIZE> buffer_;
+    alignas(64) std::atomic<size_t> write_index_{0};
+    alignas(64) std::atomic<size_t> read_index_{0};
+
+public:
+    bool enqueue(const T& item) {
+        const size_t current_write = write_index_.load(std::memory_order_relaxed);
+        const size_t next_write = (current_write + 1) % BUFFER_SIZE;
+
+        if (next_write == read_index_.load(std::memory_order_acquire)) {
+            // Queue is full
+            return false;
+        }
+
+        buffer_[current_write] = item;
+        write_index_.store(next_write, std::memory_order_release);
+        return true;
+    }
+
+    bool dequeue(T& out_item) {
+        const size_t current_read = read_index_.load(std::memory_order_relaxed);
+
+        if (current_read == write_index_.load(std::memory_order_acquire)) {
+            // Queue is empty
+            return false;
+        }
+
+        out_item = buffer_[current_read];
+        read_index_.store((current_read + 1) % BUFFER_SIZE,
+                         std::memory_order_release);
+        return true;
+    }
+
+    size_t size() const {
+        const size_t write = write_index_.load(std::memory_order_acquire);
+        const size_t read = read_index_.load(std::memory_order_acquire);
+
+        if (write >= read) {
+            return write - read;
+        } else {
+            return BUFFER_SIZE + write - read;
+        }
+    }
+
+    bool empty() const {
+        return write_index_.load(std::memory_order_acquire) ==
+               read_index_.load(std::memory_order_acquire);
+    }
+};
+
+// Usage in audio engine
+class RealTimeAudioEngine {
+private:
+    LockFreeQueue<AudioBuffer, 64> audio_queue_;
+    std::atomic<AudioProcessingState> state_{AudioProcessingState::Idle};
+
+public:
+    void audioCallback(float* output, size_t frames) noexcept {
+        // Fast path - check state atomically
+        if (state_.load(std::memory_order_acquire) != AudioProcessingState::Running) {
+            std::fill_n(output, frames * channels_, 0.0f);
+            return;
+        }
+
+        AudioBuffer buffer;
+        if (audio_queue_.dequeue(buffer)) {
+            // Process buffer
+            std::copy(buffer.data(), buffer.data() + buffer.size(), output);
+        } else {
+            // Buffer underrun
+            std::fill_n(output, frames * channels_, 0.0f);
+        }
+    }
+};
+```
+
+## 12. Testing
+
+### 12.1 Unit Tests
 
 ```cpp
 TEST(AudioBufferTest, BasicOperations) {
