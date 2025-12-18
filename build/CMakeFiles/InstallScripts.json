@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/workspace/coreMusicPlayer/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

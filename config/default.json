@@ -1,0 +1,1 @@
+{"audio": {"default_sample_rate": 48000, "default_channels": 2, "buffer_size": 1024, "latency_target_ms": 10}, "logging": {"level": "info", "file": "coremusicplayer.log"}, "performance": {"cpu_priority": "normal", "memory_limit_mb": 512}} 
