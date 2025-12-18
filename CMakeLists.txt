@@ -23,8 +23,18 @@ target_link_libraries(regression_tests GTest::gtest GTest::gtest_main)
 add_executable(user_experience_tests tests/user_experience_tests.cpp)
 target_link_libraries(user_experience_tests GTest::gtest GTest::gtest_main)
 
+# 添加Foobar2000集成测试
+add_executable(foobar_integration_test tests/foobar_integration_test.cpp)
+target_link_libraries(foobar_integration_test GTest::gtest GTest::gtest_main)
+
+# 添加Foobar2000单元测试
+add_executable(foobar_unit_test tests/foobar_unit_test.cpp)
+target_link_libraries(foobar_unit_test GTest::gtest GTest::gtest_main)
+
 # 添加测试
 add_test(NAME end_to_end_tests COMMAND end_to_end_tests)
 add_test(NAME platform_tests COMMAND platform_tests)
 add_test(NAME regression_tests COMMAND regression_tests)
 add_test(NAME user_experience_tests COMMAND user_experience_tests)
+add_test(NAME foobar_integration_test COMMAND foobar_integration_test)
+add_test(NAME foobar_unit_test COMMAND foobar_unit_test)

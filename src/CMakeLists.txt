@@ -19,6 +19,10 @@ set(SOURCES
     core/strategies/multi_format_strategy.cpp
     audio/dsp/equalizer.cpp
     audio/dsp/volume_control.cpp
+    foobar/foobar_plugin_manager.cpp
+    foobar/foobar_input_adapter.cpp
+    foobar/foobar_dsp_adapter.cpp
+    foobar/foobar_output_adapter.cpp
 )
 
 # Create main executable

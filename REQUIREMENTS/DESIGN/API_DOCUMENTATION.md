@@ -474,6 +474,9 @@ public:
     // Foobar2000 compatibility
     VoidResult scanFoobarPlugins(const std::string& directory);
     Result<std::vector<PluginInfo>> getFoobarPlugins() const;
+    Result<std::shared_ptr<core::AudioDecoder>> createFoobarDecoder(const std::string& pluginName);
+    Result<std::shared_ptr<core::AudioProcessor>> createFoobarDSP(const std::string& pluginName);
+    Result<std::shared_ptr<core::AudioOutput>> createFoobarOutput(const std::string& pluginName);
 
     // Hot reload
     VoidResult enableHotReload(bool enable);

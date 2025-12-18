@@ -126,6 +126,7 @@ src/plugins/
 ├── foobar_adapter/                   # Foobar2000适配器
 │   ├── foobar_decoder_adapter.h/cpp
 │   ├── foobar_output_adapter.h/cpp
+│   ├── foobar_dsp_adapter.h/cpp
 │   └── foobar_sdk_wrapper.h/cpp
 └── hot_reload/                      # 热重载功能
     ├── plugin_watcher.h/cpp

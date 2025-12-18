@@ -578,6 +578,71 @@ TEST_F(PluginSystemTest, BasicPluginOperations) {
     EXPECT_EQ(plugin_manager_->getPlugin("test_decoder"), nullptr);
 }
 
+TEST_F(PluginSystemTest, FoobarDecoderIntegration) {
+    // Load Foobar2000 MP3 decoder plugin
+    auto decoder = std::make_unique<FoobarDecoderAdapter>("foo_input_mp3");
+
+    // Test that it can decode MP3 files
+    EXPECT_TRUE(decoder->canDecode("test.mp3"));
+
+    // Test opening a file
+    EXPECT_TRUE(decoder->open("test.mp3"));
+
+    // Test decoding some frames
+    std::vector<float> buffer(1024);
+    size_t frames_decoded = decoder->decode(buffer.data(), 10);
+    EXPECT_GT(frames_decoded, 0);
+
+    // Test closing the file
+    EXPECT_TRUE(decoder->close());
+}
+
+TEST_F(PluginSystemTest, FoobarDSPIntegration) {
+    // Load Foobar2000 DSP plugin
+    auto dsp = std::make_unique<FoobarDSPAdapter>("foo_dsp_reverb");
+
+    // Initialize with audio format
+    AudioFormat format;
+    format.sampleRate = 44100;
+    format.channels = 2;
+    format.bitsPerSample = 16;
+
+    EXPECT_TRUE(dsp->initialize(format));
+
+    // Test processing some audio data
+    std::vector<float> buffer(1024);
+    dsp->process(buffer.data(), 10);
+
+    // Test reset functionality
+    dsp->reset();
+}
+
+TEST_F(PluginSystemTest, FoobarOutputIntegration) {
+    // Load Foobar2000 output plugin
+    auto output = std::make_unique<FoobarOutputAdapter>("foo_output_wav");
+
+    // Initialize with audio format
+    AudioFormat format;
+    format.sampleRate = 44100;
+    format.channels = 2;
+    format.bitsPerSample = 16;
+
+    EXPECT_TRUE(output->initialize(format));
+
+    // Test starting the output
+    EXPECT_TRUE(output->start());
+
+    // Test writing audio data
+    std::vector<float> buffer(1024);
+    output->writeAudio(buffer.data(), 10);
+
+    // Test flushing
+    output->flush();
+
+    // Test stopping the output
+    output->stop();
+}
+
 TEST_F(PluginSystemTest, PluginInterfaceValidation) {
     // Create mock plugin with invalid interface
     auto invalid_plugin = std::make_unique<MockInvalidPlugin>();
