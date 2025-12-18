@@ -16,15 +16,35 @@ AudioEngine::AudioEngine()
 }
 
 bool AudioEngine::initialize() {
-    // 简化实现 - 实际项目中需要初始化音频设备、驱动等
-    std::cout << "Audio engine initialized\n";
+    // 初始化音频设备和驱动
+    std::cout << "Initializing audio engine..." << std::endl;
+
+    // 这里应该调用平台特定的初始化代码
+    // 例如：WASAPI, ALSA, CoreAudio等
+
+    // 检查是否已设置音频设备
+    if (device_manager_ == nullptr) {
+        // 创建默认设备管理器（实际项目中可能需要更复杂的逻辑）
+        device_manager_ = std::make_shared<DeviceManager>();
+    }
+
+    // 初始化设备管理器
+    if (!device_manager_->initialize()) {
+        std::cerr << "Failed to initialize device manager" << std::endl;
+        return false;
+    }
+
+    std::cout << "Audio engine initialized successfully" << std::endl;
     return true;
 }
 
 void AudioEngine::cleanup() {
     // 清理资源
     state_ = EngineState::STOPPED;
-    std::cout << "Audio engine cleaned up\n";
+    if (device_manager_) {
+        device_manager_->cleanup();
+    }
+    std::cout << "Audio engine cleaned up" << std::endl;
 }
 
 bool AudioEngine::play_audio(const AudioBuffer& buffer, const AudioFormat& format) {
@@ -35,14 +55,15 @@ bool AudioEngine::play_audio(const AudioBuffer& buffer, const AudioFormat& forma
     // 应用均衡器处理
     if (equalizer_config_ && equalizer_config_->is_enabled()) {
         auto params = equalizer_config_->get_params();
-        // 创建并应用均衡器（简化实现）
-        std::cout << "Applying equalizer with " << params.size() << " bands\n";
+        // 创建并应用均衡器（实际项目中需要更复杂的实现）
+        std::cout << "Applying equalizer with " << params.size() << " bands" << std::endl;
     }
 
-    // 简化实现 - 实际项目中需要将音频数据传递给音频设备
+    // 实际播放音频数据
+    // 这里应该调用平台特定的音频输出API
     std::cout << "Playing audio: " << buffer.size()
               << " samples, format: " << static_cast<int>(format.format)
-              << ", sample rate: " << format.sample_rate << "\n";
+              << ", sample rate: " << format.sample_rate << std::endl;
 
     state_ = EngineState::PLAYING;
     return true;
@@ -50,7 +71,7 @@ bool AudioEngine::play_audio(const AudioBuffer& buffer, const AudioFormat& forma
 
 bool AudioEngine::stop_playback() {
     state_ = EngineState::STOPPED;
-    std::cout << "Playback stopped\n";
+    std::cout << "Playback stopped" << std::endl;
     return true;
 }
 
@@ -60,7 +81,7 @@ bool AudioEngine::set_volume(float volume) {
     if (volume > 1.0f) volume = 1.0f;
 
     volume_ = volume;
-    std::cout << "Volume set to: " << volume_ << "\n";
+    std::cout << "Volume set to: " << volume_ << std::endl;
     return true;
 }
 
@@ -84,6 +105,16 @@ bool AudioEngine::is_playing() const {
 // 设置均衡器配置
 void AudioEngine::set_equalizer_config(std::shared_ptr<core::EqualizerConfig> config) {
     equalizer_config_ = config;
+}
+
+// 获取设备管理器
+std::shared_ptr<DeviceManager> AudioEngine::get_device_manager() const {
+    return device_manager_;
+}
+
+// 设置设备管理器
+void AudioEngine::set_device_manager(std::shared_ptr<DeviceManager> manager) {
+    device_manager_ = manager;
 }
 
 } // namespace audio

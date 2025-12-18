@@ -1,16 +1,17 @@
+# Run tests script for Windows
+
 @echo off
-REM 构建测试
-echo Building tests...
-mkdir build
+echo Running coreMusicPlayer tests...
+
+REM Change to build directory
 cd build
-cmake ..
-cmake --build .
 
-REM 运行测试
-echo Running tests...
-.\end_to_end_tests.exe
-.\platform_tests.exe
-.\regression_tests.exe
-.\user_experience_tests.exe
+REM Run the test executable
+coreMusicPlayerTests.exe
 
-echo Test execution completed.
+if %ERRORLEVEL% NEQ 0 (
+    echo Tests failed!
+    exit /b 1
+)
+
+echo All tests passed!

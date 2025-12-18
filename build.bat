@@ -1,32 +1,27 @@
-@echo off
-REM coreMusicPlayer build script
+# Build script for Windows
 
-echo Building coreMusicPlayer...
-echo.
+@echo off
+echo Building coreMusicPlayer for Windows...
 
 REM Create build directory
-if not exist "build" mkdir "build"
+if not exist "build" mkdir build
 cd build
 
 REM Configure with CMake
-echo Configuring with CMake...
 cmake .. -G "Visual Studio 16 2019" -A x64
 
-if %errorlevel% neq 0 (
-    echo Error: CMake configuration failed
+if %ERRORLEVEL% NEQ 0 (
+    echo CMake configuration failed!
     exit /b 1
 )
 
 REM Build the project
-echo Building project...
 cmake --build . --config Release
 
-if %errorlevel% neq 0 (
-    echo Error: Build failed
+if %ERRORLEVEL% NEQ 0 (
+    echo Build failed!
     exit /b 1
 )
 
-echo.
 echo Build completed successfully!
-echo.
-echo Executable is located at: build\Release\coreMusicPlayer.exe
+echo Output executable: build\Release\coreMusicPlayer.exe

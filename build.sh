@@ -1,19 +1,28 @@
 #!/bin/bash
 
+# Build script for Linux/macOS
+
 echo "Building coreMusicPlayer..."
+
+# Create build directory
 mkdir -p build
 cd build
-cmake ..
-if [ $? -eq 0 ]; then
-    echo "CMake configuration successful"
-    make
-    if [ $? -eq 0 ]; then
-        echo "Build completed successfully!"
-        echo "Executable is in build/bin/core_music_player"
-    else
-        echo "Build failed!"
-    fi
-else
+
+# Configure with CMake
+cmake .. -DCMAKE_BUILD_TYPE=Release
+
+if [ $? -ne 0 ]; then
     echo "CMake configuration failed!"
+    exit 1
 fi
-cd ..
+
+# Build the project
+make -j$(nproc)
+
+if [ $? -ne 0 ]; then
+    echo "Build failed!"
+    exit 1
+fi
+
+echo "Build completed successfully!"
+echo "Output executable: build/coreMusicPlayer"
