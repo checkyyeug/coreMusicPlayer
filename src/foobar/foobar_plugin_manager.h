@@ -6,6 +6,7 @@
 #include <map>
 #include <functional>
 #include <memory>
+#include <filesystem>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -48,7 +49,19 @@ public:
     void onPluginLoaded(PluginEventCallback callback);
     void onPluginUnloaded(PluginEventCallback callback);
 
+    // 获取可用插件列表
+    std::vector<std::string> getAvailablePlugins() const;
+
+    // 获取已加载插件列表
+    std::vector<std::string> getLoadedPlugins() const;
+
 private:
+    struct PluginInfo {
+        std::string filename;
+        std::string path;
+        bool loaded;
+    };
+
     FoobarPluginManager() = default;
     void scanPlugins();
     bool isValidPlugin(const std::string& path);
@@ -56,6 +69,7 @@ private:
 
     std::map<std::string, void*> loadedPlugins_;
     std::map<std::string, std::shared_ptr<void>> components_;
+    std::vector<PluginInfo> availablePlugins_;
     std::string pluginPath_;
     std::vector<PluginEventCallback> loadedCallbacks_;
     std::vector<PluginEventCallback> unloadedCallbacks_;

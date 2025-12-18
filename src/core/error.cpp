@@ -2,20 +2,23 @@
 
 namespace core {
 
-Error::Error(ErrorCode code, const std::string& message)
-    : code_(code), message_(message) {}
+// CoreError 实现
+CoreError::CoreError(const std::string& message) : message_(message) {}
 
-ErrorCode Error::code() const {
-    return code_;
+const char* CoreError::what() const noexcept {
+    return message_.c_str();
 }
 
-const std::string& Error::message() const {
-    return message_;
-}
+// AudioError 实现
+AudioError::AudioError(const std::string& message) : CoreError(message) {}
 
-// 创建成功错误对象的便捷函数
-Error success() {
-    return Error(ErrorCode::SUCCESS, "Success");
-}
+// FileError 实现
+FileError::FileError(const std::string& message) : CoreError(message) {}
+
+// NetworkError 实现
+NetworkError::NetworkError(const std::string& message) : CoreError(message) {}
+
+// ConfigError 实现
+ConfigError::ConfigError(const std::string& message) : CoreError(message) {}
 
 } // namespace core

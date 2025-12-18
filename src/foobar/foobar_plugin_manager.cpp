@@ -197,8 +197,12 @@ void FoobarPluginManager::onPluginUnloaded(PluginEventCallback callback) {
     unloadedCallbacks_.push_back(callback);
 }
 
-std::vector<PluginInfo> FoobarPluginManager::getAvailablePlugins() const {
-    return availablePlugins_;
+std::vector<std::string> FoobarPluginManager::getAvailablePlugins() const {
+    std::vector<std::string> plugins;
+    for (const auto& plugin : availablePlugins_) {
+        plugins.push_back(plugin.filename);
+    }
+    return plugins;
 }
 
 std::vector<std::string> FoobarPluginManager::getLoadedPlugins() const {

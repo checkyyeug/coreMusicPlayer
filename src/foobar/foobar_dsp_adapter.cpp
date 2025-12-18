@@ -12,7 +12,7 @@ bool FoobarDSPAdapter::initialize(const audio::AudioFormat& format) {
         return false;
     }
 
-    // 在实际实现中，这里会初始化Foobar2000 DSP插件
+    // 在实际实现中，这里会初始化Foobar2000的DSP处理器
     std::cout << "Initializing Foobar2000 DSP processor" << std::endl;
 
     initialized_ = true;
@@ -24,11 +24,10 @@ void FoobarDSPAdapter::process(float* buffer, size_t frames) {
         return;
     }
 
-    // 在实际实现中，这里会调用Foobar2000的DSP插件处理音频数据
-    std::cout << "Processing " << frames << " frames with Foobar2000 DSP" << std::endl;
+    // 在实际实现中，这里会调用Foobar2000的DSP处理器处理音频数据
+    std::cout << "Processing " << frames << " frames with Foobar2000 DSP processor" << std::endl;
 
     // 模拟处理过程
-    // 实际应用中会调用Foobar2000的DSP处理函数
 }
 
 void FoobarDSPAdapter::reset() {
@@ -36,12 +35,21 @@ void FoobarDSPAdapter::reset() {
         return;
     }
 
-    // 在实际实现中，这里会重置Foobar2000 DSP插件状态
+    // 在实际实现中，这里会重置Foobar2000的DSP处理器
     std::cout << "Resetting Foobar2000 DSP processor" << std::endl;
+
+    // 模拟重置过程
 }
 
 std::string FoobarDSPAdapter::getName() const {
-    return "Foobar2000 DSP Adapter";
+    if (!foobar_dsp_) {
+        return "";
+    }
+
+    // 在实际实现中，这里会获取Foobar2000 DSP处理器的名称
+    std::cout << "Getting name of Foobar2000 DSP processor" << std::endl;
+
+    return "Foobar2000 DSP Processor";
 }
 
 } // namespace audio

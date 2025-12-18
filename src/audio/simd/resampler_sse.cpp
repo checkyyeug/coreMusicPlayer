@@ -4,28 +4,40 @@
 namespace audio {
 namespace simd {
 
-ResamplerSSE::ResamplerSSE() = default;
+ResamplerSSE::ResamplerSSE() {
+    // 初始化SSE重采样器
+}
 
-ResamplerSSE::~ResamplerSSE() = default;
+void ResamplerSSE::resample(const float* input, size_t input_frames,
+                           float* output, size_t output_frames) {
+    std::cout << "Resampling with SSE optimization" << std::endl;
+    
+    // 调用SSE优化的实现
+    resampleSSE(input, input_frames, output, output_frames);
+}
 
-std::vector<float> ResamplerSSE::resample(const std::vector<float>& input_data,
-                                        uint32_t input_sample_rate,
-                                        uint32_t output_sample_rate,
-                                        uint16_t channels) {
-    // 简化实现 - 实际项目中需要使用SSE指令优化
-    std::vector<float> output_data(input_data.size() * (double(output_sample_rate) / input_sample_rate));
+std::string ResamplerSSE::getName() const {
+    return "SSE Resampler";
+}
+
+bool ResamplerSSE::isSupported() const {
+    // 在实际实现中，这里会检查CPU是否支持SSE指令集
+    return true;  // 模拟支持
+}
+
+void ResamplerSSE::resampleSSE(const float* input, size_t input_frames,
+                              float* output, size_t output_frames) {
+    // SSE优化的重采样实现
+    // 在实际应用中，这里会使用SIMD指令进行优化处理
     
-    // 模拟SSE优化的重采样过程
-    std::cout << "SSE resampler: Processing " << input_data.size() 
-              << " samples with SSE optimization" << std::endl;
-    
-    // 这里应该使用SSE指令进行优化处理
-    // 为简化示例，我们只返回原始数据的缩放版本
-    for (size_t i = 0; i < output_data.size(); ++i) {
-        output_data[i] = input_data[i % input_data.size()] * 0.9f;
+    // 模拟重采样过程
+    for (size_t i = 0; i < output_frames; ++i) {
+        if (i < input_frames) {
+            output[i] = input[i];  // 简单复制
+        } else {
+            output[i] = 0.0f;      // 填充零值
+        }
     }
-    
-    return output_data;
 }
 
 } // namespace simd

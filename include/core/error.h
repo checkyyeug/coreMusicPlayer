@@ -2,34 +2,43 @@
 #define CORE_ERROR_H
 
 #include <string>
+#include <stdexcept>
 
 namespace core {
 
-enum class ErrorCode {
-    SUCCESS = 0,
-    INVALID_ARGUMENT = 1,
-    FILE_NOT_FOUND = 2,
-    INTERNAL_ERROR = 3
-};
-
-class Error {
+// 基础错误类
+class CoreError : public std::exception {
 public:
-    // 构造函数
-    explicit Error(ErrorCode code, const std::string& message);
-
-    // 获取错误代码
-    ErrorCode code() const;
-
-    // 获取错误消息
-    const std::string& message() const;
-
+    explicit CoreError(const std::string& message);
+    const char* what() const noexcept override;
+    
 private:
-    ErrorCode code_;
     std::string message_;
 };
 
-// 创建成功错误对象的便捷函数
-Error success();
+// 音频相关错误
+class AudioError : public CoreError {
+public:
+    explicit AudioError(const std::string& message);
+};
+
+// 文件操作错误
+class FileError : public CoreError {
+public:
+    explicit FileError(const std::string& message);
+};
+
+// 网络相关错误
+class NetworkError : public CoreError {
+public:
+    explicit NetworkError(const std::string& message);
+};
+
+// 配置相关错误
+class ConfigError : public CoreError {
+public:
+    explicit ConfigError(const std::string& message);
+};
 
 } // namespace core
 

@@ -1,32 +1,28 @@
 #ifndef AUDIO_SIMD_RESAMPLER_SSE_H
 #define AUDIO_SIMD_RESAMPLER_SSE_H
 
-#include "audio/sample_rate_converter.h"
-#include <immintrin.h>
+#include "audio/simd/resampler.h"
 
 namespace audio {
 namespace simd {
 
-// SSE优化的重采样器实现
-class ResamplerSSE : public SampleRateConverter {
+// SSE优化的重采样器
+class ResamplerSSE : public Resampler {
 public:
-    // 构造函数
     ResamplerSSE();
+    ~ResamplerSSE() override = default;
     
-    // 析构函数
-    ~ResamplerSSE() override;
+    // 实现重采样接口
+    void resample(const float* input, size_t input_frames,
+                  float* output, size_t output_frames) override;
     
-    // 重采样音频数据
-    std::vector<float> resample(const std::vector<float>& input_data,
-                               uint32_t input_sample_rate,
-                               uint32_t output_sample_rate,
-                               uint16_t channels) override;
+    std::string getName() const override;
+    bool isSupported() const override;
 
 private:
-    // SSE优化的重采样算法
-    void resample_sse(const float* input, float* output,
-                     size_t input_size, size_t output_size,
-                     uint16_t channels);
+    // SSE优化的重采样实现
+    void resampleSSE(const float* input, size_t input_frames,
+                    float* output, size_t output_frames);
 };
 
 } // namespace simd

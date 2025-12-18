@@ -10,6 +10,19 @@ class dsp_chain_entry;
 
 namespace audio {
 
+// 前向声明 AudioFormat 类型
+enum class AudioFormat {
+    PCM_S16,
+    PCM_S32,
+    PCM_FLOAT,
+    PCM_DOUBLE
+};
+
+enum class ChannelLayout {
+    MONO,
+    STEREO
+};
+
 // Foobar2000 DSP处理器适配器
 class FoobarDSPAdapter {
 public:

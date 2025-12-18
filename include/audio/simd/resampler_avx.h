@@ -1,32 +1,28 @@
 #ifndef AUDIO_SIMD_RESAMPLER_AVX_H
 #define AUDIO_SIMD_RESAMPLER_AVX_H
 
-#include "audio/sample_rate_converter.h"
-#include <immintrin.h>
+#include "audio/simd/resampler.h"
 
 namespace audio {
 namespace simd {
 
-// AVX优化的重采样器实现
-class ResamplerAVX : public SampleRateConverter {
+// AVX优化的重采样器
+class ResamplerAVX : public Resampler {
 public:
-    // 构造函数
     ResamplerAVX();
+    ~ResamplerAVX() override = default;
     
-    // 析构函数
-    ~ResamplerAVX() override;
+    // 实现重采样接口
+    void resample(const float* input, size_t input_frames,
+                  float* output, size_t output_frames) override;
     
-    // 重采样音频数据
-    std::vector<float> resample(const std::vector<float>& input_data,
-                               uint32_t input_sample_rate,
-                               uint32_t output_sample_rate,
-                               uint16_t channels) override;
+    std::string getName() const override;
+    bool isSupported() const override;
 
 private:
-    // AVX优化的重采样算法
-    void resample_avx(const float* input, float* output,
-                     size_t input_size, size_t output_size,
-                     uint16_t channels);
+    // AVX优化的重采样实现
+    void resampleAVX(const float* input, size_t input_frames,
+                     float* output, size_t output_frames);
 };
 
 } // namespace simd

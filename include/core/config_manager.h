@@ -2,60 +2,41 @@
 #define CORE_CONFIG_MANAGER_H
 
 #include <string>
+#include <map>
 #include <memory>
-
-// 包含JSON库头文件
-#include <json/json.h> // 假设使用JsonCpp库
 
 namespace core {
 
+// 配置管理器类
 class ConfigManager {
 public:
-    // 获取单例实例
-    static std::shared_ptr<ConfigManager> instance();
+    static ConfigManager& instance();
 
+    // 基本配置操作
+    void setConfig(const std::string& key, const std::string& value);
+    std::string getConfig(const std::string& key) const;
+    bool hasConfig(const std::string& key) const;
+    
+    // 获取所有配置项
+    std::map<std::string, std::string> getAllConfigs() const;
+    
+    // 删除配置项
+    void removeConfig(const std::string& key);
+    
+    // 重置为默认配置
+    void resetToDefault();
+    
     // 加载配置文件
-    bool load_config(const std::string& file_path);
-
+    bool loadFromFile(const std::string& filename);
+    
     // 保存配置到文件
-    bool save_config(const std::string& file_path) const;
-
-    // 获取字符串值
-    std::string get_string(const std::string& key,
-                          const std::string& default_value = "") const;
-
-    // 获取整数值
-    int get_int(const std::string& key, int default_value = 0) const;
-
-    // 获取浮点数值
-    double get_double(const std::string& key, double default_value = 0.0) const;
-
-    // 获取布尔值
-    bool get_bool(const std::string& key, bool default_value = false) const;
-
-    // 设置字符串值
-    void set_string(const std::string& key, const std::string& value);
-
-    // 设置整数值
-    void set_int(const std::string& key, int value);
-
-    // 设置浮点数值
-    void set_double(const std::string& key, double value);
-
-    // 设置布尔值
-    void set_bool(const std::string& key, bool value);
-
-    // 检查键是否存在
-    bool has_key(const std::string& key) const;
-
-    // 热重载配置（如果支持）
-    bool reload_config();
+    bool saveToFile(const std::string& filename) const;
 
 private:
     ConfigManager() = default;
-    ~ConfigManager() = default;
-
-    Json::Value root_;
+    
+    // 配置数据存储
+    std::map<std::string, std::string> configs_;
 };
 
 } // namespace core

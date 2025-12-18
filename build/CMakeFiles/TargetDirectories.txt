@@ -1,6 +1,3 @@
 C:/workspace/coreMusicPlayer/build/CMakeFiles/coreMusicPlayer.dir
-C:/workspace/coreMusicPlayer/build/CMakeFiles/test_build.dir
-C:/workspace/coreMusicPlayer/build/CMakeFiles/RUN_TESTS.dir
-C:/workspace/coreMusicPlayer/build/CMakeFiles/INSTALL.dir
 C:/workspace/coreMusicPlayer/build/CMakeFiles/ALL_BUILD.dir
 C:/workspace/coreMusicPlayer/build/CMakeFiles/ZERO_CHECK.dir

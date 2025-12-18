@@ -12,7 +12,7 @@
 namespace platform {
 
 std::shared_ptr<MemoryManager> MemoryManager::instance() {
-    static std::shared_ptr<MemoryManager> manager = 
+    static std::shared_ptr<MemoryManager> manager =
         std::make_shared<MemoryManager>();
     return manager;
 }
@@ -43,13 +43,13 @@ void MemoryManager::deallocate_aligned(void* ptr) {
 
 MemoryManager::MemoryPool::MemoryPool(size_t block_size, size_t num_blocks)
     : block_size_(block_size), num_blocks_(num_blocks) {
-    
+
     // 分配内存池
     pool_memory_ = static_cast<char*>(allocate_aligned(num_blocks * block_size, 32));
     if (!pool_memory_) {
         return;
     }
-    
+
     // 初始化空闲列表
     free_list_ = new void*[num_blocks];
     for (size_t i = 0; i < num_blocks; ++i) {
@@ -68,7 +68,7 @@ void* MemoryManager::MemoryPool::allocate() {
     if (!free_list_ || num_blocks_ == 0) {
         return nullptr;
     }
-    
+
     // 简单的FIFO分配策略
     void** block = static_cast<void**>(free_list_[num_blocks_ - 1]);
     --num_blocks_;
@@ -79,7 +79,7 @@ void MemoryManager::MemoryPool::deallocate(void* ptr) {
     if (!ptr || !free_list_) {
         return;
     }
-    
+
     // 简单的FIFO释放策略
     free_list_[num_blocks_] = ptr;
     ++num_blocks_;

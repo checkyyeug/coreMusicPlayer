@@ -10,6 +10,19 @@ class input_decoder;
 
 namespace audio {
 
+// 前向声明 AudioFormat 类型
+enum class AudioFormat {
+    PCM_S16,
+    PCM_S32,
+    PCM_FLOAT,
+    PCM_DOUBLE
+};
+
+enum class ChannelLayout {
+    MONO,
+    STEREO
+};
+
 // Foobar2000输入适配器
 class FoobarInputAdapter {
 public:

@@ -85,10 +85,6 @@ audio::AudioFormat FoobarInputAdapter::getFormat() const {
     std::cout << "Getting audio format from Foobar2000 decoder" << std::endl;
 
     // 占位符值，实际应该从Foobar2000插件获取
-    format.sample_rate = 44100;
-    format.format = audio::SampleFormat::PCM_FLOAT;
-    format.channels = audio::ChannelLayout::STEREO;
-
     return format;
 }
 

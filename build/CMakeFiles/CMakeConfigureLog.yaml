@@ -1357,3 +1357,174 @@ events:
       Microsoft (R) Incremental Linker Version 14.29.30159.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:160 (check_c_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:226 (_threads_check_libc)"
+      - "CMakeLists.txt:21 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-yau4v0"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-yau4v0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-yau4v0'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_63ad4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2025/12/18 18:46:59。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\Debug\\”。
+          正在创建目录“cmTC_63ad4.dir\\Debug\\cmTC_63ad4.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_63ad4.dir\\Debug\\cmTC_63ad4.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_63ad4.dir\\Debug\\\\" /Fd"cmTC_63ad4.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
+          src.c
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_63ad4.dir\\Debug\\\\" /Fd"cmTC_63ad4.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c"
+        C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c(1,10): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj]
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c(1,10): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:00.54
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake:154 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:175 (check_library_exists)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:238 (_threads_check_lib)"
+      - "CMakeLists.txt:21 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_9df1f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2025/12/18 18:47:00。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\Debug\\”。
+          正在创建目录“cmTC_9df1f.dir\\Debug\\cmTC_9df1f.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_9df1f.dir\\Debug\\cmTC_9df1f.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9df1f.dir\\Debug\\\\" /Fd"cmTC_9df1f.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\CheckFunctionExists.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
+          CheckFunctionExists.c
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9df1f.dir\\Debug\\\\" /Fd"cmTC_9df1f.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\Debug\\cmTC_9df1f.exe" /INCREMENTAL /ILK:"cmTC_9df1f.dir\\Debug\\cmTC_9df1f.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf/Debug/cmTC_9df1f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf/Debug/cmTC_9df1f.lib" /MACHINE:X64  /machine:x64 cmTC_9df1f.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj]
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj”(默认目标) (1) ->
+        (Link 目标) -> 
+          LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:00.47
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake:154 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:175 (check_library_exists)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:239 (_threads_check_lib)"
+      - "CMakeLists.txt:21 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_cc3d7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2025/12/18 18:47:01。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\Debug\\”。
+          正在创建目录“cmTC_cc3d7.dir\\Debug\\cmTC_cc3d7.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_cc3d7.dir\\Debug\\cmTC_cc3d7.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_cc3d7.dir\\Debug\\\\" /Fd"cmTC_cc3d7.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\CheckFunctionExists.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
+          CheckFunctionExists.c
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_cc3d7.dir\\Debug\\\\" /Fd"cmTC_cc3d7.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\Debug\\cmTC_cc3d7.exe" /INCREMENTAL /ILK:"cmTC_cc3d7.dir\\Debug\\cmTC_cc3d7.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2/Debug/cmTC_cc3d7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2/Debug/cmTC_cc3d7.lib" /MACHINE:X64  /machine:x64 cmTC_cc3d7.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj]
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj”(默认目标) (1) ->
+        (Link 目标) -> 
+          LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:00.48
+        
+      exitCode: 1
+...

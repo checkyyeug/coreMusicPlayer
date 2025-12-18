@@ -9,6 +9,19 @@ class output;
 
 namespace audio {
 
+// 前向声明 AudioFormat 类型
+enum class AudioFormat {
+    PCM_S16,
+    PCM_S32,
+    PCM_FLOAT,
+    PCM_DOUBLE
+};
+
+enum class ChannelLayout {
+    MONO,
+    STEREO
+};
+
 // Foobar2000输出适配器
 class FoobarOutputAdapter {
 public:
