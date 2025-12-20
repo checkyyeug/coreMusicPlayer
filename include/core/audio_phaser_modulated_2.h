@@ -11,28 +11,28 @@ class AudioPhaserModulated2 {
 public:
     // 构造函数
     AudioPhaserModulated2();
-    
+
     // 析构函数
     ~AudioPhaserModulated2();
-    
+
     // 初始化调制相位器（版本2）
     bool initialize();
-    
+
     // 关闭调制相位器（版本2）
     void shutdown();
-    
+
     // 应用调制相位效果（版本2）
     bool apply(const AudioBuffer& input, AudioBuffer& output);
-    
+
     // 设置调制相位参数（版本2）
     bool setParameters(float rate, float depth, float feedback, float mix, float modulation_rate, float modulation_depth, float lfo_waveform);
-    
+
     // 获取调制相位参数（版本2）
     void getParameters(float& rate, float& depth, float& feedback, float& mix, float& modulation_rate, float& modulation_depth, float& lfo_waveform) const;
-    
+
     // 重置调制相位器（版本2）
     void reset();
-    
+
 private:
     // 私有成员变量
     bool initialized_;

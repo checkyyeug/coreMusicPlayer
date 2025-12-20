@@ -75,7 +75,7 @@ std::map<std::string, std::string> FoobarInputAdapter::getMetadata() const {
 }
 
 audio::AudioFormat FoobarInputAdapter::getFormat() const {
-    audio::AudioFormat format;
+    audio::AudioFormat format{};  // 使用默认初始化
 
     if (!is_open_ || !foobar_decoder_) {
         return format;

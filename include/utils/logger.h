@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 #include <sstream>
+#include <fstream>
 
 namespace utils {
 
@@ -19,13 +20,16 @@ enum class LogLevel {
 class Logger {
 public:
     // 获取单例实例
-    static std::shared_ptr<Logger> instance();
+    static Logger& instance();
 
     // 设置日志级别
-    void set_level(LogLevel level);
+    void set_log_level(LogLevel level);
+    
+    // 设置输出文件
+    void set_output_file(const std::string& filename);
 
     // 日志记录函数
-    void trace(const std::string& message);
+    void log(LogLevel level, const std::string& message);
     void debug(const std::string& message);
     void info(const std::string& message);
     void warn(const std::string& message);
@@ -36,10 +40,13 @@ private:
     ~Logger() = default;
 
     // 日志级别
-    LogLevel level_;
-
-    // 获取时间戳的辅助函数
-    static std::string get_timestamp();
+    LogLevel log_level_;
+    
+    // 输出文件
+    std::string output_file_;
+    
+    // 文件流
+    std::ofstream file_stream_;
 };
 
 // 便捷宏定义

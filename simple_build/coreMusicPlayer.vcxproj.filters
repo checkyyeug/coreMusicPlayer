@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core_music_player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\result.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\config_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\feature_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\legacy_strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\complete_strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\realtime_strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\production_strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\equalizer_config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\audio_format.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\decoder_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\decoder_factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\sample_rate_converter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\dsp\volume_control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\dsp\equalizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\decoders\wav_decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\decoders\mp3_decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\decoders\flac_decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\decoders\ogg_decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\simd\resampler_sse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\simd\resampler_avx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\platform\platform_utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\platform\file_utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\platform\thread_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\platform\memory_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\utils\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\utils\debug_tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_plugin_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_input_adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_dsp_adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_output_adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\workspace\coreMusicPlayer\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1563F12A-FA9B-32D2-9FD4-08C26B8EDA53}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

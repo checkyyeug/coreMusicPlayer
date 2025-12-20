@@ -6,8 +6,8 @@
 
 namespace audio {
 
-// 音频格式枚举
-enum class AudioFormat {
+// 音频格式枚举（解码器专用）
+enum class DecoderAudioFormat {
     PCM_S16,
     PCM_S32,
     PCM_FLOAT,
@@ -35,7 +35,7 @@ public:
     virtual std::map<std::string, std::string> getMetadata() const = 0;
     
     // 获取音频格式信息
-    virtual AudioFormat getFormat() const = 0;
+    virtual DecoderAudioFormat getFormat() const = 0;
 };
 
 } // namespace audio

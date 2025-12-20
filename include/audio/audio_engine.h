@@ -6,6 +6,11 @@
 #include "audio/audio_buffer.h"
 #include "audio/audio_format.h"
 
+// 前向声明
+namespace core {
+class EqualizerConfig;
+}
+
 namespace audio {
 
 // 音频引擎主类
@@ -35,7 +40,7 @@ public:
     // 检查是否正在播放
     bool is_playing() const;
     
-private:
+public:
     AudioEngine();
     ~AudioEngine() = default;
     
@@ -48,6 +53,22 @@ private:
     
     EngineState state_;
     float volume_;
+    
+    // 设备管理器
+    std::shared_ptr<class DeviceManager> device_manager_;
+    
+    // 均衡器配置
+    std::shared_ptr<class core::EqualizerConfig> equalizer_config_;
+    
+public:
+    // 设置均衡器配置
+    void set_equalizer_config(std::shared_ptr<core::EqualizerConfig> config);
+    
+    // 获取设备管理器
+    std::shared_ptr<DeviceManager> get_device_manager() const;
+    
+    // 设置设备管理器
+    void set_device_manager(std::shared_ptr<DeviceManager> manager);
 };
 
 } // namespace audio

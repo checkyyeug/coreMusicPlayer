@@ -1,0 +1,10 @@
+^C:\WORKSPACE\COREMUSICPLAYER\CMAKEFILES\D67196A9B83D11161178E2C323E4543C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/workspace/coreMusicPlayer -BC:/workspace/coreMusicPlayer --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/workspace/coreMusicPlayer/coreMusicPlayer.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

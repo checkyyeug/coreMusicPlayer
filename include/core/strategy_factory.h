@@ -3,19 +3,20 @@
 
 #include <memory>
 #include <string>
-
-// 前向声明策略类
-class AudioProcessingStrategy;
+#include <vector>
 
 namespace core {
+
+// 前向声明策略类
+class PlayerStrategy;
 
 // 策略工厂类
 class StrategyFactory {
 public:
     static StrategyFactory& instance();
     
-    // 创建指定类型的音频处理策略
-    std::unique_ptr<AudioProcessingStrategy> createStrategy(const std::string& strategyType);
+    // 创建指定类型的播放策略
+    std::unique_ptr<PlayerStrategy> createStrategy(const std::string& strategyType);
     
     // 获取所有支持的策略类型
     std::vector<std::string> getSupportedStrategies() const;

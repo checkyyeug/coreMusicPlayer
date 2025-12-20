@@ -1,3 +1,0 @@
-C:/workspace/coreMusicPlayer/CMakeFiles/coreMusicPlayer.dir
-C:/workspace/coreMusicPlayer/CMakeFiles/ALL_BUILD.dir
-C:/workspace/coreMusicPlayer/CMakeFiles/ZERO_CHECK.dir

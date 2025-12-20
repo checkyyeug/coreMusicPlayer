@@ -19,7 +19,7 @@ public:
     size_t decode(float* buffer, size_t frames) override;
     bool seek(size_t frame) override;
     std::map<std::string, std::string> getMetadata() const override;
-    AudioFormat getFormat() const override;
+    DecoderAudioFormat getFormat() const override;
     
     // MP3特定方法
     bool isMp3File(const std::string& filename) const;

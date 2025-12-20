@@ -1,0 +1,371 @@
+﻿cl : 命令行 warning D9002: 忽略未知选项“-O3”
+  core_music_player.cpp
+C:\workspace\coreMusicPlayer\include\core/result.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/result.h(13,1): error C2182: “value”: 非法使用“void”类型
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(9): message : 查看对正在编译的 类 模板 实例化“core::Result<void>”的引用
+C:\workspace\coreMusicPlayer\include\core/result.h(18,1): error C2182: “value”: 非法使用“void”类型
+C:\workspace\coreMusicPlayer\include\core/result.h(85,1): error C2182: “value”: 非法使用“void”类型
+C:\workspace\coreMusicPlayer\include\core/result.h(110,11): error C2182: “value”: 非法使用“void”类型
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(11,1): error C2512: “core::Result<void>”: 没有合适的默认构造函数可用
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(11,1): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(16,1): error C2512: “core::Result<void>”: 没有合适的默认构造函数可用
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(16,1): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(21,1): error C2512: “core::Result<void>”: 没有合适的默认构造函数可用
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(21,1): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(26,1): error C2512: “core::Result<void>”: 没有合适的默认构造函数可用
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(26,1): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(31,1): error C2512: “core::Result<void>”: 没有合适的默认构造函数可用
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(31,1): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(36,1): error C2512: “core::Result<void>”: 没有合适的默认构造函数可用
+C:\workspace\coreMusicPlayer\src\core_music_player.cpp(36,1): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+  result.cpp
+C:\workspace\coreMusicPlayer\include\core/result.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  error.cpp
+C:\workspace\coreMusicPlayer\include\core/error.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  config_manager.cpp
+C:\workspace\coreMusicPlayer\include\core/config_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  feature_manager.cpp
+C:\workspace\coreMusicPlayer\src\core\feature_manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/feature_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  unified_music_player.cpp
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/unified_music_player.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/player_strategy.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(26,32): error C2819: “core::StrategyFactory”类型没有重载成员“operator ->”
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(13): message : 参见“core::StrategyFactory”的声明
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(26,32): message : 是否改用“.”?
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(26,34): error C2039: "create_strategy": 不是 "core::StrategyFactory" 的成员
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(13): message : 参见“core::StrategyFactory”的声明
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(28,22): error C3536: “new_strategy”: 初始化之前无法使用
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(39,48): error C2679: 二元“=”: 没有找到接受“int”类型的右操作数的运算符(或没有可接受的转换)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\memory(3238,17): message : 可能是“std::unique_ptr<core::PlayerStrategy,std::default_delete<core::PlayerStrategy>> &std::unique_ptr<core::PlayerStrategy,std::default_delete<core::PlayerStrategy>>::operator =(const std::unique_ptr<core::PlayerStrategy,std::default_delete<core::PlayerStrategy>> &)”
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\memory(3135,17): message : 或    “std::unique_ptr<core::PlayerStrategy,std::default_delete<core::PlayerStrategy>> &std::unique_ptr<core::PlayerStrategy,std::default_delete<core::PlayerStrategy>>::operator =(std::nullptr_t) noexcept”
+C:\workspace\coreMusicPlayer\src\core\unified_music_player.cpp(39,48): message : 尝试匹配参数列表“(std::unique_ptr<core::PlayerStrategy,std::default_delete<core::PlayerStrategy>>, int)”时
+  strategy_factory.cpp
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(21,10): error C2039: "vector": 不是 "std" 的成员
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\string(24): message : 参见“std”的声明
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(21,16): error C2143: 语法错误: 缺少“;”(在“<”的前面)
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(21,16): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(21,60): error C2238: 意外的标记位于“;”之前
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(23,50): error C2440: “return”: 无法从“std::unique_ptr<LegacyStrategy,std::default_delete<LegacyStrategy>>”转换为“std::unique_ptr<AudioProcessingStrategy,std::default_delete<AudioProcessingStrategy>>”
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(23,50): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(25,52): error C2440: “return”: 无法从“std::unique_ptr<CompleteStrategy,std::default_delete<CompleteStrategy>>”转换为“std::unique_ptr<AudioProcessingStrategy,std::default_delete<AudioProcessingStrategy>>”
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(25,52): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(27,52): error C2440: “return”: 无法从“std::unique_ptr<RealtimeStrategy,std::default_delete<RealtimeStrategy>>”转换为“std::unique_ptr<AudioProcessingStrategy,std::default_delete<AudioProcessingStrategy>>”
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(27,52): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(29,54): error C2440: “return”: 无法从“std::unique_ptr<ProductionStrategy,std::default_delete<ProductionStrategy>>”转换为“std::unique_ptr<AudioProcessingStrategy,std::default_delete<AudioProcessingStrategy>>”
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(29,54): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(31,55): error C2440: “return”: 无法从“std::unique_ptr<MultiFormatStrategy,std::default_delete<MultiFormatStrategy>>”转换为“std::unique_ptr<AudioProcessingStrategy,std::default_delete<AudioProcessingStrategy>>”
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(31,55): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(35,48): error C2440: “return”: 无法从“std::unique_ptr<CompleteStrategy,std::default_delete<CompleteStrategy>>”转换为“std::unique_ptr<AudioProcessingStrategy,std::default_delete<AudioProcessingStrategy>>”
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(35,48): message : 无构造函数可以接受源类型，或构造函数重载决策不明确
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(38,43): error C2039: "getSupportedStrategies": 不是 "core::StrategyFactory" 的成员
+C:\workspace\coreMusicPlayer\include\core/strategy_factory.h(13): message : 参见“core::StrategyFactory”的声明
+C:\workspace\coreMusicPlayer\src\core\strategy_factory.cpp(38,74): error C2270: “getSupportedStrategies”: 非成员函数上不允许修饰符
+  legacy_strategy.cpp
+C:\workspace\coreMusicPlayer\src\core\strategies\legacy_strategy.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  complete_strategy.cpp
+C:\workspace\coreMusicPlayer\src\core\strategies\complete_strategy.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  realtime_strategy.cpp
+C:\workspace\coreMusicPlayer\src\core\strategies\realtime_strategy.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  production_strategy.cpp
+C:\workspace\coreMusicPlayer\src\core\strategies\production_strategy.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/strategies/production_strategy.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  multi_format_strategy.cpp
+C:\workspace\coreMusicPlayer\src\core\strategies\multi_format_strategy.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/strategies/multi_format_strategy.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  equalizer_config.cpp
+C:\workspace\coreMusicPlayer\src\core\equalizer_config.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/equalizer_config.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_engine.cpp
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_engine.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_format.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/equalizer_config.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(26,9): error C2065: “device_manager_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(28,9): error C2065: “device_manager_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(28,44): error C2065: “DeviceManager”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(28,32): error C2672: “std::make_shared”: 未找到匹配的重载函数
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(28,59): error C2974: 'std::make_shared' : 模板 对于 '_Ty'是无效参数，应为类型
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\memory(2725): message : 参见“std::make_shared”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(32,10): error C2065: “device_manager_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(44,9): error C2065: “device_manager_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(45,9): error C2065: “device_manager_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(56,9): error C2065: “equalizer_config_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(56,30): error C2065: “equalizer_config_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(57,23): error C2065: “equalizer_config_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(59,58): error C3536: “params”: 初始化之前无法使用
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(106,19): error C2039: "set_equalizer_config": 不是 "audio::AudioEngine" 的成员
+C:\workspace\coreMusicPlayer\include\audio/audio_engine.h(12): message : 参见“audio::AudioEngine”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(107,5): error C2065: “equalizer_config_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111,17): error C2065: “DeviceManager”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111,6): error C2923: “std::shared_ptr”: 对于参数“_Ty”，“DeviceManager”不是有效的 模板 类型变量
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111): message : 参见“DeviceManager”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111,45): error C2039: "get_device_manager": 不是 "audio::AudioEngine" 的成员
+C:\workspace\coreMusicPlayer\include\audio/audio_engine.h(12): message : 参见“audio::AudioEngine”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111,72): error C2270: “get_device_manager”: 非成员函数上不允许修饰符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111,72): error C2955: “std::shared_ptr”: 使用 类 模板 需要 模板 参数列表
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\memory(1490): message : 参见“std::shared_ptr”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(111,72): error C2079: “audio::get_device_manager”使用未定义的 class“std::shared_ptr”
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(112,12): error C2065: “device_manager_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(116,19): error C2039: "set_device_manager": 不是 "audio::AudioEngine" 的成员
+C:\workspace\coreMusicPlayer\include\audio/audio_engine.h(12): message : 参见“audio::AudioEngine”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(116,54): error C2065: “DeviceManager”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(116,43): error C2923: “std::shared_ptr”: 对于参数“_Ty”，“DeviceManager”不是有效的 模板 类型变量
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(116): message : 参见“DeviceManager”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(116,69): error C2955: “std::shared_ptr”: 使用 类 模板 需要 模板 参数列表
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\memory(1490): message : 参见“std::shared_ptr”的声明
+C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp(117,5): error C2065: “device_manager_”: 未声明的标识符
+  audio_format.cpp
+C:\workspace\coreMusicPlayer\include\../include/audio/audio_format.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_buffer.cpp
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(6,39): error C2084: 函数“audio::AudioBuffer::AudioBuffer(size_t)”已有主体
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(12): message : 参见“{ctor}”的前一个定义
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(9,52): error C2084: 函数“audio::AudioBuffer::AudioBuffer(const audio::AudioBuffer &)”已有主体
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(15): message : 参见“{ctor}”的前一个定义
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(12,56): error C2084: 函数“audio::AudioBuffer::AudioBuffer(audio::AudioBuffer &&) noexcept”已有主体
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(18): message : 参见“{ctor}”的前一个定义
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(15,63): error C2084: 函数“audio::AudioBuffer &audio::AudioBuffer::operator =(const audio::AudioBuffer &)”已有主体
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(21): message : 参见“=”的前一个定义
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(18,67): error C2084: 函数“audio::AudioBuffer &audio::AudioBuffer::operator =(audio::AudioBuffer &&) noexcept”已有主体
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(24): message : 参见“=”的前一个定义
+C:\workspace\coreMusicPlayer\src\audio\audio_buffer.cpp(21,29): error C2084: 函数“audio::AudioBuffer::~AudioBuffer(void)”已有主体
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(27): message : 参见“{dtor}”的前一个定义
+  device_manager.cpp
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_format.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(14,17): error C2039: "shared_ptr": 不是 "std" 的成员
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include\vector(24): message : 参见“std”的声明
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(14,27): error C2143: 语法错误: 缺少“;”(在“<”的前面)
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(14,27): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(14,53): error C2238: 意外的标记位于“;”之前
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(6,47): error C2039: "instance": 不是 "audio::DeviceManager" 的成员
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(11): message : 参见“audio::DeviceManager”的声明
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(17,21): error C2039: "initialize": 不是 "audio::DeviceManager" 的成员
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(11): message : 参见“audio::DeviceManager”的声明
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(22,10): error C3861: “enumerate_devices”: 找不到标识符
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(31,21): error C2039: "cleanup": 不是 "audio::DeviceManager" 的成员
+C:\workspace\coreMusicPlayer\include\audio/device_manager.h(11): message : 参见“audio::DeviceManager”的声明
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(33,5): error C2065: “output_devices_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\audio\device_manager.cpp(34,5): error C2065: “input_devices_”: 未声明的标识符
+  decoder_manager.cpp
+C:\workspace\coreMusicPlayer\src\audio\decoder_manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoder_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoder_interface.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_format.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\audio\decoder_manager.cpp(25,63): error C2039: "clone": 不是 "audio::DecoderInterface" 的成员
+C:\workspace\coreMusicPlayer\include\audio/decoder_interface.h(12): message : 参见“audio::DecoderInterface”的声明
+C:\workspace\coreMusicPlayer\src\audio\decoder_manager.cpp(36,63): error C2039: "clone": 不是 "audio::DecoderInterface" 的成员
+C:\workspace\coreMusicPlayer\include\audio/decoder_interface.h(12): message : 参见“audio::DecoderInterface”的声明
+  decoder_factory.cpp
+C:\workspace\coreMusicPlayer\src\audio\decoder_factory.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoder_factory.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoder_interface.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_format.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/wav_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/audio_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/audio_decoder.h(10,24): error C2011: “audio::AudioFormat”:“struct”类型重定义
+C:\workspace\coreMusicPlayer\include\audio/audio_format.h(26): message : 参见“audio::AudioFormat”的声明
+C:\workspace\coreMusicPlayer\src\audio\decoder_factory.cpp(22,63): error C2039: "clone": 不是 "audio::DecoderInterface" 的成员
+C:\workspace\coreMusicPlayer\include\audio/decoder_interface.h(12): message : 参见“audio::DecoderInterface”的声明
+C:\workspace\coreMusicPlayer\src\audio\decoder_factory.cpp(33,41): error C2039: "get_supported_formats": 不是 "audio::DecoderInterface" 的成员
+C:\workspace\coreMusicPlayer\include\audio/decoder_interface.h(12): message : 参见“audio::DecoderInterface”的声明
+C:\workspace\coreMusicPlayer\src\audio\decoder_factory.cpp(34,54): error C3536: “decoder_formats”: 初始化之前无法使用
+C:\workspace\coreMusicPlayer\src\audio\decoder_factory.cpp(34,85): error C2661: “std::vector<std::string,std::allocator<std::string>>::insert”: 没有重载函数接受 1 个参数
+  sample_rate_converter.cpp
+C:\workspace\coreMusicPlayer\src\audio\sample_rate_converter.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/sample_rate_converter.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/audio_format.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+  正在编译...
+  volume_control.cpp
+C:\workspace\coreMusicPlayer\src\audio\dsp\volume_control.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/dsp/volume_control.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  equalizer.cpp
+C:\workspace\coreMusicPlayer\src\audio\dsp\equalizer.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/dsp/equalizer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  wav_decoder.cpp
+C:\workspace\coreMusicPlayer\src\audio\decoders\wav_decoder.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/wav_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/audio_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  mp3_decoder.cpp
+C:\workspace\coreMusicPlayer\src\audio\decoders\mp3_decoder.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/mp3_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/audio_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  flac_decoder.cpp
+C:\workspace\coreMusicPlayer\src\audio\decoders\flac_decoder.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/flac_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/audio_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ogg_decoder.cpp
+C:\workspace\coreMusicPlayer\src\audio\decoders\ogg_decoder.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/ogg_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/decoders/audio_decoder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  resampler_sse.cpp
+C:\workspace\coreMusicPlayer\src\audio\simd\resampler_sse.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/simd/resampler_sse.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/simd/resampler.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  resampler_avx.cpp
+C:\workspace\coreMusicPlayer\src\audio\simd\resampler_avx.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/simd/resampler_avx.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\audio/simd/resampler.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  platform_utils.cpp
+C:\workspace\coreMusicPlayer\include\platform/platform_utils.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  file_utils.cpp
+C:\workspace\coreMusicPlayer\src\platform\file_utils.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\platform/file_utils.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  thread_manager.cpp
+C:\workspace\coreMusicPlayer\src\platform\thread_manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\platform/thread_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  memory_manager.cpp
+C:\workspace\coreMusicPlayer\src\platform\memory_manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\platform/memory_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\platform\memory_manager.cpp(48,39): error C2352: “platform::MemoryManager::allocate_aligned”: 非静态成员函数的非法调用
+C:\workspace\coreMusicPlayer\src\platform\memory_manager.cpp(20): message : 参见“platform::MemoryManager::allocate_aligned”的声明
+C:\workspace\coreMusicPlayer\src\platform\memory_manager.cpp(62,9): error C2352: “platform::MemoryManager::deallocate_aligned”: 非静态成员函数的非法调用
+C:\workspace\coreMusicPlayer\src\platform\memory_manager.cpp(34): message : 参见“platform::MemoryManager::deallocate_aligned”的声明
+  logger.cpp
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\utils/logger.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(10,28): error C2556: “utils::Logger &utils::Logger::instance(void)”: 重载函数与“std::shared_ptr<utils::Logger> utils::Logger::instance(void)”只是在返回类型上不同
+C:\workspace\coreMusicPlayer\include\utils/logger.h(22): message : 参见“utils::Logger::instance”的声明
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(10,17): error C2040: “utils::Logger::instance”:“utils::Logger &(void)”与“std::shared_ptr<utils::Logger> (void)”的间接寻址级别不同
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(15,14): error C2039: "set_log_level": 不是 "utils::Logger" 的成员
+C:\workspace\coreMusicPlayer\include\utils/logger.h(19): message : 参见“utils::Logger”的声明
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(16,5): error C2065: “log_level_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(19,14): error C2039: "set_output_file": 不是 "utils::Logger" 的成员
+C:\workspace\coreMusicPlayer\include\utils/logger.h(19): message : 参见“utils::Logger”的声明
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(20,5): error C2065: “output_file_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(21,10): error C2065: “output_file_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(22,9): error C2065: “file_stream_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(22,27): error C2065: “output_file_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(26,14): error C2039: "log": 不是 "utils::Logger" 的成员
+C:\workspace\coreMusicPlayer\include\utils/logger.h(19): message : 参见“utils::Logger”的声明
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(27,17): error C2065: “log_level_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(65,9): error C2065: “file_stream_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(66,9): error C2065: “file_stream_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(67,9): error C2065: “file_stream_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\logger.cpp(39,31): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  performance_counter.cpp
+C:\workspace\coreMusicPlayer\include\utils/performance_counter.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(6,42): error C2084: 函数“utils::PerformanceCounter::PerformanceCounter(void)”已有主体
+C:\workspace\coreMusicPlayer\include\utils/performance_counter.h(32): message : 参见“{ctor}”的前一个定义
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(6,44): error C2614: “utils::PerformanceCounter”: 非法的成员初始化:“start_time_”不是基或成员
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(8,26): error C2039: "start": 不是 "utils::PerformanceCounter" 的成员
+C:\workspace\coreMusicPlayer\include\utils/performance_counter.h(11): message : 参见“utils::PerformanceCounter”的声明
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(9,5): error C2065: “start_time_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(12,28): error C2039: "elapsed_ms": 不是 "utils::PerformanceCounter" 的成员
+C:\workspace\coreMusicPlayer\include\utils/performance_counter.h(11): message : 参见“utils::PerformanceCounter”的声明
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(12,47): error C2270: “elapsed_ms”: 非成员函数上不允许修饰符
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(14,86): error C2065: “start_time_”: 未声明的标识符
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(14,34): error C2672: “std::chrono::duration_cast”: 未找到匹配的重载函数
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(15,20): error C3536: “duration”: 初始化之前无法使用
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(18,26): error C2039: "print_elapsed": 不是 "utils::PerformanceCounter" 的成员
+C:\workspace\coreMusicPlayer\include\utils/performance_counter.h(11): message : 参见“utils::PerformanceCounter”的声明
+C:\workspace\coreMusicPlayer\src\utils\performance_counter.cpp(18,72): error C2270: “print_elapsed”: 非成员函数上不允许修饰符
+  debug_tools.cpp
+C:\workspace\coreMusicPlayer\src\utils\debug_tools.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\utils/debug_tools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  foobar_plugin_manager.cpp
+C:\workspace\coreMusicPlayer\src\foobar\foobar_plugin_manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\foobar\foobar_plugin_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  foobar_input_adapter.cpp
+C:\workspace\coreMusicPlayer\src\foobar\foobar_input_adapter.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\foobar\foobar_input_adapter.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  foobar_dsp_adapter.cpp
+C:\workspace\coreMusicPlayer\src\foobar\foobar_dsp_adapter.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\foobar\foobar_dsp_adapter.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  foobar_output_adapter.cpp
+C:\workspace\coreMusicPlayer\src\foobar\foobar_output_adapter.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\src\foobar\foobar_output_adapter.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_flanger_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_flanger_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_flanger_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+C:\workspace\coreMusicPlayer\src\foobar\foobar_input_adapter.cpp(81): warning C4700: 使用了未初始化的局部变量“format”
+C:\workspace\coreMusicPlayer\src\audio\decoders\ogg_decoder.cpp(70): warning C4700: 使用了未初始化的局部变量“format”
+C:\workspace\coreMusicPlayer\src\audio\decoders\flac_decoder.cpp(70): warning C4700: 使用了未初始化的局部变量“format”
+C:\workspace\coreMusicPlayer\src\audio\decoders\mp3_decoder.cpp(70): warning C4700: 使用了未初始化的局部变量“format”
+C:\workspace\coreMusicPlayer\src\audio\decoders\wav_decoder.cpp(70): warning C4700: 使用了未初始化的局部变量“format”
+  正在编译...
+  audio_chorus_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_chorus_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_chorus_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_auto_wah_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_auto_wah_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_auto_wah_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_tremolo_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_tremolo_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_tremolo_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_phaser_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_phaser_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_phaser_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_spectral_delay_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_spectral_delay_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_spectral_delay_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_waveshaper_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_waveshaper_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_waveshaper_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_vocoder_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_vocoder_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_vocoder_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_spectral_filter_modulated_2.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_spectral_filter_modulated_2.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_spectral_filter_modulated_2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_flanger_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_flanger_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_flanger_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_chorus_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_chorus_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_chorus_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_auto_wah_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_auto_wah_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_auto_wah_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_tremolo_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_tremolo_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_tremolo_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_phaser_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_phaser_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_phaser_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_spectral_delay_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_spectral_delay_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_spectral_delay_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_waveshaper_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_waveshaper_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_waveshaper_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_vocoder_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_vocoder_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_vocoder_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  audio_spectral_filter_modulated_3.cpp
+C:\workspace\coreMusicPlayer\src\core\audio_spectral_filter_modulated_3.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_spectral_filter_modulated_3.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\workspace\coreMusicPlayer\include\core/audio_buffer.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  main.cpp
+C:\workspace\coreMusicPlayer\include\core/result.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...

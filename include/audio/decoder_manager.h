@@ -25,9 +25,8 @@ public:
     // 获取所有已注册的解码器名称
     std::vector<std::string> get_registered_decoders() const;
     
-private:
+public:
     DecoderManager() = default;
-    ~DecoderManager() = default;
     
     // 已注册的解码器列表
     std::vector<std::unique_ptr<DecoderInterface>> decoders_;

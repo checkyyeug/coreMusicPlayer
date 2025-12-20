@@ -34,9 +34,6 @@
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\production_strategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\multi_format_strategy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\equalizer_config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

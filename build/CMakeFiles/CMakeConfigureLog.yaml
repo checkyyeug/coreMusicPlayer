@@ -5,7 +5,7 @@ events:
     kind: "message-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       The system is: Windows - 10.0.26200 - AMD64
   -
@@ -16,7 +16,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -37,8 +37,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -70,7 +68,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler:  
@@ -82,7 +80,7 @@ events:
       用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
       版权所有(C) Microsoft Corporation。保留所有权利。
       
-      生成启动时间为 2025/12/17 21:36:14。
+      生成启动时间为 2025/12/20 8:10:24。
       节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\4.2.1\\CompilerIdC\\CompilerIdC.vcxproj”(默认目标)。
       PrepareForBuild:
         正在创建目录“Debug\\”。
@@ -108,7 +106,7 @@ events:
           0 个警告
           0 个错误
       
-      已用时间 00:00:00.65
+      已用时间 00:00:00.60
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -125,7 +123,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -143,8 +141,6 @@ events:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -175,8 +171,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -209,7 +203,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -227,8 +221,6 @@ events:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -262,12 +254,6 @@ events:
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link.com"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link.exe"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link"
-      - "C:/Python314/Scripts/lld-link.com"
-      - "C:/Python314/Scripts/lld-link.exe"
-      - "C:/Python314/Scripts/lld-link"
-      - "C:/Python314/lld-link.com"
-      - "C:/Python314/lld-link.exe"
-      - "C:/Python314/lld-link"
       - "C:/Windows/System32/lld-link.com"
       - "C:/Windows/System32/lld-link.exe"
       - "C:/Windows/System32/lld-link"
@@ -342,8 +328,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -374,7 +358,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
     description: "Path to a program."
@@ -392,8 +376,6 @@ events:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -424,8 +406,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -456,7 +436,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "CMAKE_MT"
     description: "Path to a program."
@@ -474,8 +454,6 @@ events:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -509,12 +487,6 @@ events:
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mt.com"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mt.exe"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mt"
-      - "C:/Python314/Scripts/mt.com"
-      - "C:/Python314/Scripts/mt.exe"
-      - "C:/Python314/Scripts/mt"
-      - "C:/Python314/mt.com"
-      - "C:/Python314/mt.exe"
-      - "C:/Python314/mt"
       - "C:/Windows/System32/mt.com"
       - "C:/Windows/System32/mt.exe"
       - "C:/Windows/System32/mt"
@@ -589,8 +561,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -621,7 +591,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "CMAKE_AR"
     description: "Path to a program."
@@ -639,8 +609,6 @@ events:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -671,8 +639,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -706,7 +672,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -727,8 +693,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -760,7 +724,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler:  
@@ -772,7 +736,7 @@ events:
       用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
       版权所有(C) Microsoft Corporation。保留所有权利。
       
-      生成启动时间为 2025/12/17 21:36:15。
+      生成启动时间为 2025/12/20 8:10:25。
       节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\4.2.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj”(默认目标)。
       PrepareForBuild:
         正在创建目录“Debug\\”。
@@ -798,7 +762,7 @@ events:
           0 个警告
           0 个错误
       
-      已用时间 00:00:00.51
+      已用时间 00:00:00.46
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -815,7 +779,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -833,8 +797,6 @@ events:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -868,12 +830,6 @@ events:
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link.com"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link.exe"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link"
-      - "C:/Python314/Scripts/lld-link.com"
-      - "C:/Python314/Scripts/lld-link.exe"
-      - "C:/Python314/Scripts/lld-link"
-      - "C:/Python314/lld-link.com"
-      - "C:/Python314/lld-link.exe"
-      - "C:/Python314/lld-link"
       - "C:/Windows/System32/lld-link.com"
       - "C:/Windows/System32/lld-link.exe"
       - "C:/Windows/System32/lld-link"
@@ -948,8 +904,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -983,7 +937,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:553 (__windows_compiler_msvc_enable_rc)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake:48 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     mode: "program"
     variable: "CMAKE_RC_COMPILER"
     description: "RC compiler"
@@ -1000,8 +954,6 @@ events:
     candidate_directories:
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
-      - "C:/Python314/Scripts/"
-      - "C:/Python314/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -1044,12 +996,6 @@ events:
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/rc.com"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/rc.exe"
       - "C:/Users/check/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/rc"
-      - "C:/Python314/Scripts/rc.com"
-      - "C:/Python314/Scripts/rc.exe"
-      - "C:/Python314/Scripts/rc"
-      - "C:/Python314/rc.com"
-      - "C:/Python314/rc.exe"
-      - "C:/Python314/rc"
       - "C:/Windows/System32/rc.com"
       - "C:/Windows/System32/rc.exe"
       - "C:/Windows/System32/rc"
@@ -1160,8 +1106,6 @@ events:
       ENV{PATH}:
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\check\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Python314\\Scripts\\"
-        - "C:\\Python314\\"
         - "C:\\Windows\\system32"
         - "C:\\Windows"
         - "C:\\Windows\\System32\\Wbem"
@@ -1198,12 +1142,12 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-d2esxd"
-      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-d2esxd"
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-fuu41p"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-fuu41p"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -1212,38 +1156,38 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-d2esxd'
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-fuu41p'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_7f149.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_787ff.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
         版权所有(C) Microsoft Corporation。保留所有权利。
         
-        生成启动时间为 2025/12/17 21:36:16。
-        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2esxd\\cmTC_7f149.vcxproj”(默认目标)。
+        生成启动时间为 2025/12/20 8:10:26。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fuu41p\\cmTC_787ff.vcxproj”(默认目标)。
         PrepareForBuild:
-          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2esxd\\Debug\\”。
-          正在创建目录“cmTC_7f149.dir\\Debug\\cmTC_7f149.tlog\\”。
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fuu41p\\Debug\\”。
+          正在创建目录“cmTC_787ff.dir\\Debug\\cmTC_787ff.tlog\\”。
         InitializeBuildStatus:
-          正在创建“cmTC_7f149.dir\\Debug\\cmTC_7f149.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在创建“cmTC_787ff.dir\\Debug\\cmTC_787ff.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_7f149.dir\\Debug\\\\" /Fd"cmTC_7f149.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_787ff.dir\\Debug\\\\" /Fd"cmTC_787ff.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
           CMakeCCompilerABI.c
           版权所有(C) Microsoft Corporation。保留所有权利。
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_7f149.dir\\Debug\\\\" /Fd"cmTC_7f149.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_787ff.dir\\Debug\\\\" /Fd"cmTC_787ff.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2esxd\\Debug\\cmTC_7f149.exe" /INCREMENTAL /ILK:"cmTC_7f149.dir\\Debug\\cmTC_7f149.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-d2esxd/Debug/cmTC_7f149.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-d2esxd/Debug/cmTC_7f149.lib" /MACHINE:X64  /machine:x64 cmTC_7f149.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_7f149.vcxproj -> C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2esxd\\Debug\\cmTC_7f149.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fuu41p\\Debug\\cmTC_787ff.exe" /INCREMENTAL /ILK:"cmTC_787ff.dir\\Debug\\cmTC_787ff.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-fuu41p/Debug/cmTC_787ff.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-fuu41p/Debug/cmTC_787ff.lib" /MACHINE:X64  /machine:x64 cmTC_787ff.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_787ff.vcxproj -> C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fuu41p\\Debug\\cmTC_787ff.exe
         FinalizeBuildStatus:
-          正在删除文件“cmTC_7f149.dir\\Debug\\cmTC_7f149.tlog\\unsuccessfulbuild”。
-          正在对“cmTC_7f149.dir\\Debug\\cmTC_7f149.tlog\\cmTC_7f149.lastbuildstate”执行 Touch 任务。
-        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2esxd\\cmTC_7f149.vcxproj”(默认目标)的操作。
+          正在删除文件“cmTC_787ff.dir\\Debug\\cmTC_787ff.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_787ff.dir\\Debug\\cmTC_787ff.tlog\\cmTC_787ff.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fuu41p\\cmTC_787ff.vcxproj”(默认目标)的操作。
         
         已成功生成。
             0 个警告
             0 个错误
         
-        已用时间 00:00:00.48
+        已用时间 00:00:00.44
         
       exitCode: 0
   -
@@ -1251,7 +1195,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -1269,7 +1213,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       Running the C compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.29.30159.0
@@ -1279,12 +1223,12 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-ypvnue"
-      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-ypvnue"
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-4v1qi2"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-4v1qi2"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -1294,38 +1238,38 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-ypvnue'
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-4v1qi2'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_caa50.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_4e1e4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
         版权所有(C) Microsoft Corporation。保留所有权利。
         
-        生成启动时间为 2025/12/17 21:36:16。
-        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ypvnue\\cmTC_caa50.vcxproj”(默认目标)。
+        生成启动时间为 2025/12/20 8:10:26。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1qi2\\cmTC_4e1e4.vcxproj”(默认目标)。
         PrepareForBuild:
-          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ypvnue\\Debug\\”。
-          正在创建目录“cmTC_caa50.dir\\Debug\\cmTC_caa50.tlog\\”。
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1qi2\\Debug\\”。
+          正在创建目录“cmTC_4e1e4.dir\\Debug\\cmTC_4e1e4.tlog\\”。
         InitializeBuildStatus:
-          正在创建“cmTC_caa50.dir\\Debug\\cmTC_caa50.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在创建“cmTC_4e1e4.dir\\Debug\\cmTC_4e1e4.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_caa50.dir\\Debug\\\\" /Fd"cmTC_caa50.dir\\Debug\\vc142.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_4e1e4.dir\\Debug\\\\" /Fd"cmTC_4e1e4.dir\\Debug\\vc142.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
           CMakeCXXCompilerABI.cpp
           版权所有(C) Microsoft Corporation。保留所有权利。
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_caa50.dir\\Debug\\\\" /Fd"cmTC_caa50.dir\\Debug\\vc142.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_4e1e4.dir\\Debug\\\\" /Fd"cmTC_4e1e4.dir\\Debug\\vc142.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ypvnue\\Debug\\cmTC_caa50.exe" /INCREMENTAL /ILK:"cmTC_caa50.dir\\Debug\\cmTC_caa50.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-ypvnue/Debug/cmTC_caa50.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-ypvnue/Debug/cmTC_caa50.lib" /MACHINE:X64  /machine:x64 cmTC_caa50.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_caa50.vcxproj -> C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ypvnue\\Debug\\cmTC_caa50.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1qi2\\Debug\\cmTC_4e1e4.exe" /INCREMENTAL /ILK:"cmTC_4e1e4.dir\\Debug\\cmTC_4e1e4.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-4v1qi2/Debug/cmTC_4e1e4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-4v1qi2/Debug/cmTC_4e1e4.lib" /MACHINE:X64  /machine:x64 cmTC_4e1e4.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_4e1e4.vcxproj -> C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1qi2\\Debug\\cmTC_4e1e4.exe
         FinalizeBuildStatus:
-          正在删除文件“cmTC_caa50.dir\\Debug\\cmTC_caa50.tlog\\unsuccessfulbuild”。
-          正在对“cmTC_caa50.dir\\Debug\\cmTC_caa50.tlog\\cmTC_caa50.lastbuildstate”执行 Touch 任务。
-        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ypvnue\\cmTC_caa50.vcxproj”(默认目标)的操作。
+          正在删除文件“cmTC_4e1e4.dir\\Debug\\cmTC_4e1e4.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_4e1e4.dir\\Debug\\cmTC_4e1e4.tlog\\cmTC_4e1e4.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1qi2\\cmTC_4e1e4.vcxproj”(默认目标)的操作。
         
         已成功生成。
             0 个警告
             0 个错误
         
-        已用时间 00:00:00.47
+        已用时间 00:00:00.44
         
       exitCode: 0
   -
@@ -1333,7 +1277,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -1351,15 +1295,11 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:4 (project)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.29.30159.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
-...
-
----
-events:
   -
     kind: "try_compile-v1"
     backtrace:
@@ -1371,8 +1311,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-yau4v0"
-      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-yau4v0"
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-qrrj1p"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-qrrj1p"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -1381,38 +1321,38 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-yau4v0'
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-qrrj1p'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_63ad4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_d09da.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
         版权所有(C) Microsoft Corporation。保留所有权利。
         
-        生成启动时间为 2025/12/18 18:46:59。
-        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj”(默认目标)。
+        生成启动时间为 2025/12/20 8:10:27。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\cmTC_d09da.vcxproj”(默认目标)。
         PrepareForBuild:
-          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\Debug\\”。
-          正在创建目录“cmTC_63ad4.dir\\Debug\\cmTC_63ad4.tlog\\”。
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\Debug\\”。
+          正在创建目录“cmTC_d09da.dir\\Debug\\cmTC_d09da.tlog\\”。
         InitializeBuildStatus:
-          正在创建“cmTC_63ad4.dir\\Debug\\cmTC_63ad4.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在创建“cmTC_d09da.dir\\Debug\\cmTC_d09da.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_63ad4.dir\\Debug\\\\" /Fd"cmTC_63ad4.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d09da.dir\\Debug\\\\" /Fd"cmTC_d09da.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\src.c"
           用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
           src.c
           版权所有(C) Microsoft Corporation。保留所有权利。
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_63ad4.dir\\Debug\\\\" /Fd"cmTC_63ad4.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c"
-        C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c(1,10): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj]
-        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj”(默认目标)的操作 - 失败。
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d09da.dir\\Debug\\\\" /Fd"cmTC_d09da.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\src.c"
+        C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\src.c(1,10): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\cmTC_d09da.vcxproj]
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\cmTC_d09da.vcxproj”(默认目标)的操作 - 失败。
         
         生成失败。
         
-        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj”(默认目标) (1) ->
+        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\cmTC_d09da.vcxproj”(默认目标) (1) ->
         (ClCompile 目标) -> 
-          C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\src.c(1,10): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yau4v0\\cmTC_63ad4.vcxproj]
+          C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\src.c(1,10): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrrj1p\\cmTC_d09da.vcxproj]
         
             0 个警告
             1 个错误
         
-        已用时间 00:00:00.54
+        已用时间 00:00:00.30
         
       exitCode: 1
   -
@@ -1425,8 +1365,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf"
-      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf"
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-jtcbkm"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-jtcbkm"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -1435,40 +1375,40 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf'
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-jtcbkm'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_9df1f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_0dc1a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
         版权所有(C) Microsoft Corporation。保留所有权利。
         
-        生成启动时间为 2025/12/18 18:47:00。
-        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj”(默认目标)。
+        生成启动时间为 2025/12/20 8:10:28。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\cmTC_0dc1a.vcxproj”(默认目标)。
         PrepareForBuild:
-          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\Debug\\”。
-          正在创建目录“cmTC_9df1f.dir\\Debug\\cmTC_9df1f.tlog\\”。
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\Debug\\”。
+          正在创建目录“cmTC_0dc1a.dir\\Debug\\cmTC_0dc1a.tlog\\”。
         InitializeBuildStatus:
-          正在创建“cmTC_9df1f.dir\\Debug\\cmTC_9df1f.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在创建“cmTC_0dc1a.dir\\Debug\\cmTC_0dc1a.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9df1f.dir\\Debug\\\\" /Fd"cmTC_9df1f.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\CheckFunctionExists.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_0dc1a.dir\\Debug\\\\" /Fd"cmTC_0dc1a.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\CheckFunctionExists.c"
           用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
           CheckFunctionExists.c
           版权所有(C) Microsoft Corporation。保留所有权利。
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9df1f.dir\\Debug\\\\" /Fd"cmTC_9df1f.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\CheckFunctionExists.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_0dc1a.dir\\Debug\\\\" /Fd"cmTC_0dc1a.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\CheckFunctionExists.c"
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\Debug\\cmTC_9df1f.exe" /INCREMENTAL /ILK:"cmTC_9df1f.dir\\Debug\\cmTC_9df1f.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf/Debug/cmTC_9df1f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-sunfsf/Debug/cmTC_9df1f.lib" /MACHINE:X64  /machine:x64 cmTC_9df1f.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj]
-        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj”(默认目标)的操作 - 失败。
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\Debug\\cmTC_0dc1a.exe" /INCREMENTAL /ILK:"cmTC_0dc1a.dir\\Debug\\cmTC_0dc1a.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-jtcbkm/Debug/cmTC_0dc1a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-jtcbkm/Debug/cmTC_0dc1a.lib" /MACHINE:X64  /machine:x64 cmTC_0dc1a.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\cmTC_0dc1a.vcxproj]
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\cmTC_0dc1a.vcxproj”(默认目标)的操作 - 失败。
         
         生成失败。
         
-        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj”(默认目标) (1) ->
+        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\cmTC_0dc1a.vcxproj”(默认目标) (1) ->
         (Link 目标) -> 
-          LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sunfsf\\cmTC_9df1f.vcxproj]
+          LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jtcbkm\\cmTC_0dc1a.vcxproj]
         
             0 个警告
             1 个错误
         
-        已用时间 00:00:00.47
+        已用时间 00:00:00.37
         
       exitCode: 1
   -
@@ -1481,8 +1421,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2"
-      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2"
+      source: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-lg3n5i"
+      binary: "C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-lg3n5i"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -1491,40 +1431,40 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2'
+        Change Dir: 'C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-lg3n5i'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_cc3d7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_d815f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.6+a918ceb31
         版权所有(C) Microsoft Corporation。保留所有权利。
         
-        生成启动时间为 2025/12/18 18:47:01。
-        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj”(默认目标)。
+        生成启动时间为 2025/12/20 8:10:28。
+        节点 1 上的项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\cmTC_d815f.vcxproj”(默认目标)。
         PrepareForBuild:
-          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\Debug\\”。
-          正在创建目录“cmTC_cc3d7.dir\\Debug\\cmTC_cc3d7.tlog\\”。
+          正在创建目录“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\Debug\\”。
+          正在创建目录“cmTC_d815f.dir\\Debug\\cmTC_d815f.tlog\\”。
         InitializeBuildStatus:
-          正在创建“cmTC_cc3d7.dir\\Debug\\cmTC_cc3d7.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在创建“cmTC_d815f.dir\\Debug\\cmTC_d815f.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_cc3d7.dir\\Debug\\\\" /Fd"cmTC_cc3d7.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\CheckFunctionExists.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d815f.dir\\Debug\\\\" /Fd"cmTC_d815f.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\CheckFunctionExists.c"
           用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30159 版
           CheckFunctionExists.c
           版权所有(C) Microsoft Corporation。保留所有权利。
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_cc3d7.dir\\Debug\\\\" /Fd"cmTC_cc3d7.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\CheckFunctionExists.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d815f.dir\\Debug\\\\" /Fd"cmTC_d815f.dir\\Debug\\vc142.pdb" /external:W3 /TC /errorReport:queue "C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\CheckFunctionExists.c"
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\Debug\\cmTC_cc3d7.exe" /INCREMENTAL /ILK:"cmTC_cc3d7.dir\\Debug\\cmTC_cc3d7.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2/Debug/cmTC_cc3d7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-tc2ro2/Debug/cmTC_cc3d7.lib" /MACHINE:X64  /machine:x64 cmTC_cc3d7.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj]
-        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj”(默认目标)的操作 - 失败。
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\Debug\\cmTC_d815f.exe" /INCREMENTAL /ILK:"cmTC_d815f.dir\\Debug\\cmTC_d815f.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-lg3n5i/Debug/cmTC_d815f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/workspace/coreMusicPlayer/build/CMakeFiles/CMakeScratch/TryCompile-lg3n5i/Debug/cmTC_d815f.lib" /MACHINE:X64  /machine:x64 cmTC_d815f.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\cmTC_d815f.vcxproj]
+        已完成生成项目“C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\cmTC_d815f.vcxproj”(默认目标)的操作 - 失败。
         
         生成失败。
         
-        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj”(默认目标) (1) ->
+        “C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\cmTC_d815f.vcxproj”(默认目标) (1) ->
         (Link 目标) -> 
-          LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc2ro2\\cmTC_cc3d7.vcxproj]
+          LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [C:\\workspace\\coreMusicPlayer\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lg3n5i\\cmTC_d815f.vcxproj]
         
             0 个警告
             1 个错误
         
-        已用时间 00:00:00.48
+        已用时间 00:00:00.38
         
       exitCode: 1
 ...

@@ -87,12 +87,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
@@ -108,12 +108,12 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_WIN32_WINNT=0x0601;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -145,11 +145,11 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
@@ -204,11 +204,11 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
@@ -263,12 +263,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
@@ -387,7 +387,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\complete_strategy.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\realtime_strategy.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\production_strategy.cpp" />
-    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\strategies\multi_format_strategy.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\equalizer_config.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\audio_engine.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\audio\audio_format.cpp" />

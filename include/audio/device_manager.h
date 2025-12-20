@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 #include "audio/audio_format.h"
 
 namespace audio {
@@ -37,9 +38,14 @@ public:
     // 检查设备是否可用
     bool is_device_available(const std::string& device_name) const;
     
-private:
+    // 初始化设备管理器
+    bool initialize();
+    
+    // 清理资源
+    void cleanup();
+    
+public:
     DeviceManager();
-    ~DeviceManager() = default;
     
     // 设备信息结构体
     struct AudioDeviceInfo {

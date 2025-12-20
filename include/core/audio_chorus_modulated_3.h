@@ -11,28 +11,28 @@ class AudioChorusModulated3 {
 public:
     // 构造函数
     AudioChorusModulated3();
-    
+
     // 析构函数
     ~AudioChorusModulated3();
-    
+
     // 初始化调制合唱器（版本3）
     bool initialize();
-    
+
     // 关闭调制合唱器（版本3）
     void shutdown();
-    
+
     // 应用调制合唱效果（版本3）
     bool apply(const AudioBuffer& input, AudioBuffer& output);
-    
+
     // 设置调制合唱参数（版本3）
-    bool setParameters(float rate, float depth, float feedback, float mix, float modulation_rate, float modulation_depth, float lfo_waveform, float stereo_width);
-    
+    bool setParameters(float rate, float depth, float feedback, float mix, float modulation_rate, float modulation_depth, float lfo_waveform);
+
     // 获取调制合唱参数（版本3）
-    void getParameters(float& rate, float& depth, float& feedback, float& mix, float& modulation_rate, float& modulation_depth, float& lfo_waveform, float& stereo_width) const;
-    
+    void getParameters(float& rate, float& depth, float& feedback, float& mix, float& modulation_rate, float& modulation_depth, float& lfo_waveform) const;
+
     // 重置调制合唱器（版本3）
     void reset();
-    
+
 private:
     // 私有成员变量
     bool initialized_;
@@ -43,7 +43,6 @@ private:
     float modulation_rate_;  // 调制速率
     float modulation_depth_; // 调制深度
     float lfo_waveform_;      // LFO波形类型 (0: sine, 1: triangle, 2: square, 3: sawtooth)
-    float stereo_width_;       // 立体声宽度
 };
 
 } // namespace core

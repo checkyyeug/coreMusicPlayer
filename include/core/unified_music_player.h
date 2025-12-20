@@ -49,9 +49,8 @@ public:
     // 获取当前策略名称
     std::string get_active_strategy_name() const;
     
-private:
+public:
     UnifiedMusicPlayer();
-    ~UnifiedMusicPlayer() = default;
     
     // 当前使用的播放策略
     std::unique_ptr<PlayerStrategy> current_strategy_;

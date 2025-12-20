@@ -6,39 +6,40 @@
 
 namespace core {
 
-// 音频调制声码器类（版本2）
+// 音频调制压控器类（版本2）
 class AudioVocoderModulated2 {
 public:
     // 构造函数
     AudioVocoderModulated2();
-    
+
     // 析构函数
     ~AudioVocoderModulated2();
-    
-    // 初始化调制声码器（版本2）
+
+    // 初始化调制压控器（版本2）
     bool initialize();
-    
-    // 关闭调制声码器（版本2）
+
+    // 关闭调制压控器（版本2）
     void shutdown();
-    
-    // 应用调制声码效果（版本2）
+
+    // 应用调制压控效果（版本2）
     bool apply(const AudioBuffer& input, AudioBuffer& output);
-    
-    // 设置调制声码参数（版本2）
-    bool setParameters(float carrier_freq, float modulator_freq, float mix, float modulation_rate, float modulation_depth, float lfo_waveform);
-    
-    // 获取调制声码参数（版本2）
-    void getParameters(float& carrier_freq, float& modulator_freq, float& mix, float& modulation_rate, float& modulation_depth, float& lfo_waveform) const;
-    
-    // 重置调制声码器（版本2）
+
+    // 设置调制压控参数（版本2）
+    bool setParameters(float rate, float depth, float feedback, float mix, float modulation_rate, float modulation_depth, float lfo_waveform);
+
+    // 获取调制压控参数（版本2）
+    void getParameters(float& rate, float& depth, float& feedback, float& mix, float& modulation_rate, float& modulation_depth, float& lfo_waveform) const;
+
+    // 重置调制压控器（版本2）
     void reset();
-    
+
 private:
     // 私有成员变量
     bool initialized_;
-    float carrier_freq_;      // 载波频率
-    float modulator_freq_;   // 调制频率
-    float mix_;              // 混合比例
+    float rate_;              // 基础调制速率
+    float depth_;             // 基础调制深度
+    float feedback_;          // 反馈量
+    float mix_;               // 混合比例
     float modulation_rate_;  // 调制速率
     float modulation_depth_; // 调制深度
     float lfo_waveform_;      // LFO波形类型 (0: sine, 1: triangle, 2: square, 3: sawtooth)

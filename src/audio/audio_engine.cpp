@@ -1,6 +1,8 @@
 #include "audio/audio_engine.h"
+#include "audio/device_manager.h"
 #include "core/equalizer_config.h"
 #include <iostream>
+#include <memory>
 
 namespace audio {
 
@@ -53,8 +55,8 @@ bool AudioEngine::play_audio(const AudioBuffer& buffer, const AudioFormat& forma
     }
 
     // 应用均衡器处理
-    if (equalizer_config_ && equalizer_config_->is_enabled()) {
-        auto params = equalizer_config_->get_params();
+    if (equalizer_config_) {
+        auto params = equalizer_config_->getAllGains();
         // 创建并应用均衡器（实际项目中需要更复杂的实现）
         std::cout << "Applying equalizer with " << params.size() << " bands" << std::endl;
     }

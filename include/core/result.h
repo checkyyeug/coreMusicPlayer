@@ -125,6 +125,84 @@ Result<T> Err(const std::string& error) {
     return Result<T>(error);
 }
 
+// void类型的特化
+template<>
+class Result<void> {
+public:
+    // 构造成功值
+    Result() : is_error_(false) {}
+
+    // 构造错误值
+    explicit Result(const std::string& error) : is_error_(true), error_(error) {}
+
+    // 拷贝构造函数
+    Result(const Result<void>& other) : is_error_(other.is_error_) {
+        if (is_error_) {
+            error_ = other.error_;
+        }
+    }
+
+    // 移动构造函数
+    Result(Result<void>&& other) noexcept : is_error_(other.is_error_) {
+        if (is_error_) {
+            error_ = std::move(other.error_);
+        }
+    }
+
+    // 赋值操作符（拷贝）
+    Result<void>& operator=(const Result<void>& other) {
+        if (this != &other) {
+            is_error_ = other.is_error_;
+            if (is_error_) {
+                error_ = other.error_;
+            }
+        }
+        return *this;
+    }
+
+    // 赋值操作符（移动）
+    Result<void>& operator=(Result<void>&& other) noexcept {
+        if (this != &other) {
+            is_error_ = other.is_error_;
+            if (is_error_) {
+                error_ = std::move(other.error_);
+            }
+        }
+        return *this;
+    }
+
+    // 析构函数
+    ~Result() = default;
+
+    // 检查是否为成功状态
+    bool is_ok() const { return !is_error_; }
+
+    // 检查是否为错误状态
+    bool is_err() const { return is_error_; }
+
+    // 获取错误信息
+    const std::string& error() const {
+        if (!is_error_) {
+            throw std::runtime_error("Trying to access error of a successful Result");
+        }
+        return error_;
+    }
+
+private:
+    std::string error_;
+    bool is_error_;
+};
+
+// void类型成功结果的便捷函数
+inline Result<void> Ok() {
+    return Result<void>();
+}
+
+// void类型错误结果的便捷函数
+inline Result<void> Err(const std::string& error) {
+    return Result<void>(error);
+}
+
 } // namespace core
 
 #endif // CORE_RESULT_H

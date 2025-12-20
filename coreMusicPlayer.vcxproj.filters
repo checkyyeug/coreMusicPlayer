@@ -118,6 +118,60 @@
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_output_adapter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_flanger_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_chorus_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_auto_wah_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_tremolo_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_phaser_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_delay_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_waveshaper_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_vocoder_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_filter_modulated_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_flanger_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_chorus_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_auto_wah_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_tremolo_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_phaser_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_delay_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_waveshaper_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_vocoder_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_filter_modulated_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

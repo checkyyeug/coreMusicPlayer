@@ -63,8 +63,8 @@ std::map<std::string, std::string> FlacDecoder::getMetadata() const {
     return metadata;
 }
 
-AudioFormat FlacDecoder::getFormat() const {
-    AudioFormat format;
+DecoderAudioFormat FlacDecoder::getFormat() const {
+    DecoderAudioFormat format = DecoderAudioFormat::PCM_S16;
     
     if (!is_open_) {
         return format;

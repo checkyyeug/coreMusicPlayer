@@ -11,28 +11,28 @@ class AudioFlangerModulated2 {
 public:
     // 构造函数
     AudioFlangerModulated2();
-    
+
     // 析构函数
     ~AudioFlangerModulated2();
-    
+
     // 初始化调制镶边器（版本2）
     bool initialize();
-    
+
     // 关闭调制镶边器（版本2）
     void shutdown();
-    
+
     // 应用调制镶边效果（版本2）
     bool apply(const AudioBuffer& input, AudioBuffer& output);
-    
+
     // 设置调制镶边参数（版本2）
     bool setParameters(float rate, float depth, float feedback, float mix, float modulation_rate, float modulation_depth, float lfo_waveform);
-    
+
     // 获取调制镶边参数（版本2）
     void getParameters(float& rate, float& depth, float& feedback, float& mix, float& modulation_rate, float& modulation_depth, float& lfo_waveform) const;
-    
+
     // 重置调制镶边器（版本2）
     void reset();
-    
+
 private:
     // 私有成员变量
     bool initialized_;

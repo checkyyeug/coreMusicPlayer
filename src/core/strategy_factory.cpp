@@ -1,13 +1,11 @@
 #include "core/strategy_factory.h"
+#include "core/legacy_strategy.h"
+#include "core/complete_strategy.h"
+#include "core/realtime_strategy.h"
+#include "core/production_strategy.h"
+// #include "core/strategies/multi_format_strategy.h"
 #include <vector>
 #include <memory>
-
-// 前向声明具体策略类
-class LegacyStrategy;
-class CompleteStrategy;
-class RealtimeStrategy;
-class ProductionStrategy;
-class MultiFormatStrategy;
 
 namespace core {
 
@@ -16,7 +14,7 @@ StrategyFactory& StrategyFactory::instance() {
     return instance;
 }
 
-std::unique_ptr<AudioProcessingStrategy> StrategyFactory::createStrategy(
+std::unique_ptr<core::PlayerStrategy> StrategyFactory::createStrategy(
     const std::string& strategyType) {
     
     if (strategyType == "legacy") {
@@ -27,8 +25,8 @@ std::unique_ptr<AudioProcessingStrategy> StrategyFactory::createStrategy(
         return std::make_unique<RealtimeStrategy>();
     } else if (strategyType == "production") {
         return std::make_unique<ProductionStrategy>();
-    } else if (strategyType == "multi_format") {
-        return std::make_unique<MultiFormatStrategy>();
+    // } else if (strategyType == "multi_format") {
+    //     return std::make_unique<MultiFormatStrategy>();
     }
     
     // 默认返回完整策略
@@ -41,7 +39,7 @@ std::vector<std::string> StrategyFactory::getSupportedStrategies() const {
         "complete", 
         "realtime",
         "production",
-        "multi_format"
+        // "multi_format"
     };
 }
 

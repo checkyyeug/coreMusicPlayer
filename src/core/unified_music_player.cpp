@@ -22,8 +22,8 @@ bool UnifiedMusicPlayer::initialize() {
 
 bool UnifiedMusicPlayer::set_strategy(const std::string& strategy_name) {
     // 使用策略工厂创建指定名称的播放策略
-    auto factory = StrategyFactory::instance();
-    auto new_strategy = factory->create_strategy(strategy_name);
+    auto& factory = StrategyFactory::instance();
+    auto new_strategy = factory.createStrategy(strategy_name);
 
     if (!new_strategy) {
         std::cerr << "Failed to create strategy: " << strategy_name << std::endl;

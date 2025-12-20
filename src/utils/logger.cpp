@@ -7,6 +7,9 @@
 
 namespace utils {
 
+Logger::Logger() : log_level_(LogLevel::INFO) {
+}
+
 Logger& Logger::instance() {
     static Logger logger;
     return logger;
@@ -36,7 +39,21 @@ void Logger::log(LogLevel level, const std::string& message) {
 
     // 格式化时间
     std::ostringstream oss;
+    
+#ifdef _WIN32
+    // Windows 平台使用安全的 localtime_s
+    struct tm time_info;
+    if (localtime_s(&time_info, &time_t) == 0) {
+        oss << std::put_time(&time_info, "%Y-%m-%d %H:%M:%S");
+    } else {
+        // 如果 localtime_s 失败，使用备用格式
+        oss << "1970-01-01 00:00:00";
+    }
+#else
+    // 非 Windows 平台使用标准 localtime
     oss << std::put_time(std::localtime(&time_t), "%Y-%m-%d %H:%M:%S");
+#endif
+    
     oss << '.' << std::setfill('0') << std::setw(3) << ms.count();
 
     // 构造日志消息

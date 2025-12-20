@@ -63,8 +63,8 @@ std::map<std::string, std::string> OggDecoder::getMetadata() const {
     return metadata;
 }
 
-AudioFormat OggDecoder::getFormat() const {
-    AudioFormat format;
+DecoderAudioFormat OggDecoder::getFormat() const {
+    DecoderAudioFormat format = DecoderAudioFormat::PCM_S16;
     
     if (!is_open_) {
         return format;

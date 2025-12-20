@@ -13,10 +13,10 @@ public:
     static std::shared_ptr<MemoryManager> instance();
 
     // 分配对齐的内存块（用于音频处理）
-    void* allocate_aligned(size_t size, size_t alignment = 32);
+    static void* allocate_aligned(size_t size, size_t alignment = 32);
 
     // 释放对齐的内存块
-    void deallocate_aligned(void* ptr);
+    static void deallocate_aligned(void* ptr);
 
     // 创建内存池管理器
     class MemoryPool {
@@ -43,7 +43,7 @@ public:
         char* pool_memory_;
     };
 
-private:
+public:
     MemoryManager() = default;
     ~MemoryManager() = default;
 };

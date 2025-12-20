@@ -63,8 +63,8 @@ std::map<std::string, std::string> WavDecoder::getMetadata() const {
     return metadata;
 }
 
-AudioFormat WavDecoder::getFormat() const {
-    AudioFormat format;
+DecoderAudioFormat WavDecoder::getFormat() const {
+    DecoderAudioFormat format = DecoderAudioFormat::PCM_S16;
     
     if (!is_open_) {
         return format;

@@ -93,7 +93,9 @@
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
@@ -103,17 +105,15 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -150,7 +150,9 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -160,19 +162,17 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -209,7 +209,9 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -219,19 +221,17 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -269,7 +269,9 @@
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -279,17 +281,15 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN32_WINNT=0x0601;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\workspace\coreMusicPlayer\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -415,6 +415,24 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_input_adapter.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_dsp_adapter.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\foobar\foobar_output_adapter.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_flanger_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_chorus_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_auto_wah_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_tremolo_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_phaser_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_delay_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_waveshaper_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_vocoder_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_filter_modulated_2.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_flanger_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_chorus_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_auto_wah_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_tremolo_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_phaser_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_delay_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_waveshaper_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_vocoder_modulated_3.cpp" />
+    <ClCompile Include="C:\workspace\coreMusicPlayer\src\core\audio_spectral_filter_modulated_3.cpp" />
     <ClCompile Include="C:\workspace\coreMusicPlayer\src\main.cpp" />
   </ItemGroup>
   <ItemGroup />

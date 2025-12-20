@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include "audio/audio_buffer.h"
 #include "audio/audio_format.h"
 
@@ -31,6 +32,12 @@ public:
     
     // 获取元数据信息
     virtual std::string get_metadata(const std::string& file_path) const = 0;
+    
+    // 克隆解码器（用于工厂模式）
+    virtual std::unique_ptr<DecoderInterface> clone() const = 0;
+    
+    // 获取支持的格式
+    virtual std::vector<std::string> get_supported_formats() const = 0;
 };
 
 } // namespace audio
